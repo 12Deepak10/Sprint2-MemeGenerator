@@ -33,17 +33,17 @@ function onImageClick(elImg) {
 
 function renderImgGallery() {
     let elImgGallery = document.querySelector('.image-gallery');
-    let imagesUrls = getImagesUrls();
-    imagesUrls.forEach((imageUrl, imgIndex) => elImgGallery.innerHTML += getImgHtml(imageUrl, imgIndex + 1));
+    let images = getImages();
+    images.forEach((image) => elImgGallery.innerHTML += getImgHtml(image));
 }
 
-function getImgHtml(imgUrl, imgId) {
-    let imgHTML = `<img src="${imgUrl}" data-imgid=${imgId} onclick="onImageClick(this)">`;
+function getImgHtml(image) {
+    let imgHTML = `<img src="${image.url}" data-imgid=${image.id} onclick="onImageClick(this)">`;
     return imgHTML;
 }
 
 function renderCanvas() {
-    gBgImg.src = getBgImgUrl();
+    gBgImg.src = getBgImg().url;
     gBgImg.onload = () => {
         gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
         drawTextLines();

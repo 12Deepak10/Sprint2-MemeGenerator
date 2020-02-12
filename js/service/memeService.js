@@ -55,15 +55,15 @@ function setSelectedLineFontSize(fontSizeDiff) {
     renderCanvas();
 }
 
-function getImagesUrls() {
+function getImages() {
     return gImages;
 }
 
 function loadImages() {
     let numOfImages = 2;
     for (let i = 1; i <= numOfImages; i++) {
-        let currImgUrl = `images/square/${i}.jpg`;
-        gImages.push(currImgUrl);
+        let currImg = { url: `images/square/${i}.jpg`, id: i };
+        gImages.push(currImg);
     }
 }
 
@@ -75,7 +75,7 @@ function getMeme() {
     return gMeme;
 }
 
-function getBgImgUrl() {
+function getBgImg() {
     return gImages[gMeme.selectedImgId - 1];
 }
 
