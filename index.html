@@ -9,17 +9,20 @@
 </head>
 
 <body onload="init()">
-    <header class="main-header">
-        main header
+    <header class="flex align-items-center justify-content-between container main-header">
         <div class="logo">
             logo
         </div>
-        <nav class="top-right-nav">
-            right side nav
+        <nav class="main-nav">
+            <ul class="flex clean-list">
+                <li>Gallery</li>
+                <li>About</li>
+            </ul>
         </nav>
     </header>
 
     <main class="main-content">
+        main content
         <!-- Gallery -->
         <section class="gallery">
             gallery
@@ -30,13 +33,13 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="main-footer">
         footer
         <div class="logo">logo</div>
         <div class="copyright">copyrights</div>
     </footer>
-    
-    <label for="text-line-input">
+
+    <!-- <label for="text-line-input">
         Line content:
         <input type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
     </label>
@@ -51,7 +54,7 @@
 
     <section class="image-gallery">
         <img src="" alt="">
-    </section>
+    </section> -->
 
     <script src="js/service/memeService.js"></script>
     <script src="js/controller/controller.js"></script>

@@ -24,13 +24,69 @@
     src: url('/fonts/Montserrat-Bold.ttf');
 }
 
+/* Base */
+
 html {
     font-family: Montserrat;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
     margin: 0;
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+
+/* Layout */
+
+.container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* page header */
+
+.main-header {
+    grid-row: 1 / 2;
+    background-color: lightgreen;
+}
+
+.logo{
+
+}
+
+/* navbar */
+
+.main-nav {}
+
+
+
+
+
+.main-content {
+    grid-row: 2 / 11;
+}
+
+.main-footer {
+    grid-row: 11 / 12;
+}
+
+/* helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
 }
