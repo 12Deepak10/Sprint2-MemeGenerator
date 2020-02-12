@@ -1,7 +1,9 @@
 'use strict'
 
+let gImages = [];
+
 let gMeme = {
-    selectedImgId: 2,
+    selectedImgId: 3,
     selectedLineIdx: 0,
     lines: [
         {
@@ -11,6 +13,18 @@ let gMeme = {
             color: 'red'
         }
     ]
+}
+
+function getImagesUrls() {
+    return gImages;
+}
+
+function loadImages() {
+    let numOfImages = 2;
+    for (let i = 1; i <= numOfImages; i++) {
+        let currImgUrl = `/images/square/${i}.jpg`;
+        gImages.push(currImgUrl);
+    }
 }
 
 function setSelectedLineTxt(txt) {
@@ -28,6 +42,10 @@ function getBgImgUrl() {
 
 function getAllTxtLines() {
     return gMeme.lines;
+}
+
+function setSelectedImgId(imgId) {
+    gMeme.selectedImgId = imgId;
 }
 
 function getSelctedTxtLine() {

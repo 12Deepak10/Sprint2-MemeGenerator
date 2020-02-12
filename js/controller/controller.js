@@ -5,13 +5,31 @@ let gCtx;
 let gBgImg;
 
 function init() {
+    loadImages();
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     gBgImg = new Image();
-    renderMeme();
+    renderCanvas();
+    renderImgGallery();
 }
 
-function renderMeme() {
+function onImageClick(elImg) {
+    setSelectedImgId(elImg.dataset.imgid);
+    renderCanvas();
+}
+
+function renderImgGallery() {
+    let elImgGallery = document.querySelector('.image-gallery');
+    let imagesUrls = getImagesUrls();
+    imagesUrls.forEach((imageUrl, imgIndex) => elImgGallery.innerHTML += getImgHtml(imageUrl, imgIndex + 1));
+}
+
+function getImgHtml(imgUrl, imgId) {
+    let imgHTML = `<img src="${imgUrl}" data-imgid=${imgId} onclick="onImageClick(this)">`;
+    return imgHTML;
+}
+
+function renderCanvas() {
     gBgImg.src = getBgImgUrl();
     gBgImg.onload = () => {
         gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
@@ -21,7 +39,7 @@ function renderMeme() {
 
 function onTextLineInputChange(txt) {
     setSelectedLineTxt(txt);
-    renderMeme();
+    renderCanvas();
 }
 
 function drawTextLines() {
