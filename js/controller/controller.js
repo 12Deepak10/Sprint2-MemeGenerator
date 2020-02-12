@@ -13,6 +13,11 @@ function init() {
     renderImgGallery();
 }
 
+function onLineHeightChange(lineHeightDiff) {
+    setSelectedLineHeight(lineHeightDiff);
+    renderCanvas();
+}
+
 function onFontSizeChange(fontDiff) {
     setSelectedLineFontSize(fontDiff);
 }
@@ -55,21 +60,21 @@ function drawTextLine(textLine, textLineIndex) {
     let fontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
     gCtx.font = `${textLine.size}px ${fontFamily}`;
     gCtx.textAlign = textLine.align;
-    gCtx.fillStyle = textLine.color;
-    gCtx.strokeStyle = 'black';
-    let textLineHeight;
+    gCtx.fillStyle = textLine.fillColor;
+    gCtx.strokeStyle = textLine.strokeColor;
 
     if (textLineIndex === 0) {
-        textLineHeight = 0;
-        gCtx.textBaseline = 'top';
+        textLine.height = textLine.height ? textLine.height : 0;
+        textLine.baseLine = 'top';
     } else if (textLineIndex === 1) {
-        textLineHeight = gElCanvas.height;
-        gCtx.textBaseline = 'bottom';
+        textLine.height = textLine.height ? textLine.height : gElCanvas.height;
+        textLine.baseLine = 'bottom';
     } else {
-        textLineHeight = gElCanvas.height / 2;
-        gCtx.textBaseline = 'middle';
+        textLine.height = textLine.height ? textLine.height : gElCanvas.height / 2;
+        textLine.baseLine = 'middle';
     }
 
-    gCtx.fillText(textLine.txt, gElCanvas.width / 2, textLineHeight);
-    gCtx.strokeText(textLine.txt, gElCanvas.width / 2, textLineHeight);
+    gCtx.textBaseline = textLine.baseLine;
+    gCtx.fillText(textLine.txt, gElCanvas.width / 2, textLine.height);
+    gCtx.strokeText(textLine.txt, gElCanvas.width / 2, textLine.height);
 }

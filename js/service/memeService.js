@@ -10,9 +10,36 @@ let gMeme = {
             txt: 'first text',
             size: 50,
             align: 'center',
-            color: 'red'
+            fillColor: 'red',
+            strokeColor: 'yellow',
+            height: null,
+            baseLine: null
+        },
+        {
+            txt: 'second text',
+            size: 40,
+            align: 'center',
+            fillColor: 'green',
+            strokeColor: 'black',
+            height: null,
+            baseLine: null
+        },
+        {
+            txt: 'third text',
+            size: 90,
+            align: 'center',
+            fillColor: 'cyan',
+            strokeColor: 'black',
+            height: null,
+            baseLine: null
         }
     ]
+}
+
+function setSelectedLineHeight(lineHeightDiff) {
+    if (gMeme.lines[gMeme.selectedLineIdx].height !== null) {
+        gMeme.lines[gMeme.selectedLineIdx].height += lineHeightDiff;
+    }
 }
 
 function setSelectedLineFontSize(fontSizeDiff) {
