@@ -13,6 +13,10 @@ function init() {
     renderImgGallery();
 }
 
+function onChangeLine() {
+    setNextLineAsSelected();
+}
+
 function onLineHeightChange(lineHeightDiff) {
     setSelectedLineHeight(lineHeightDiff);
     renderCanvas();

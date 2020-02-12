@@ -36,6 +36,14 @@ let gMeme = {
     ]
 }
 
+function setNextLineAsSelected() {
+    gMeme.selectedLineIdx++;
+
+    if (gMeme.selectedLineIdx > gMeme.lines.length - 1) {
+        gMeme.selectedLineIdx = 0;
+    }
+}
+
 function setSelectedLineHeight(lineHeightDiff) {
     if (gMeme.lines[gMeme.selectedLineIdx].height !== null) {
         gMeme.lines[gMeme.selectedLineIdx].height += lineHeightDiff;
