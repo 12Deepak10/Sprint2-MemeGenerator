@@ -79,12 +79,14 @@ body {
 
 .gallery-images-container {
     background-color: #e3e3e3;
-    padding-top: 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .images-grid {
+    block-size: 500px;
     height: 850px;
-    grid-template-columns: repeat(3, 350px);
+    grid-template-columns: repeat(3, 250px);
     grid-template-rows: repeat(3, 250px);
     gap: 15px;
 }
