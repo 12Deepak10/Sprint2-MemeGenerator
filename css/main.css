@@ -34,7 +34,7 @@ body {
     height: 100vh;
     margin: 0;
     display: grid;
-    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-rows: repeat(12, 1fr);
 }
 
 /* Layout */
@@ -69,12 +69,16 @@ body {
     background-color: #8a8a8a;
 }
 
-.main-content {
+.gallery-container {
     grid-row: 2 / 11;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
 }
 
+/* footer */
+
 .main-footer {
-    grid-row: 11 / 12;
+    grid-row: 11 / 13;
     height: 200px;
     background-color: #ff7f00;
 }
