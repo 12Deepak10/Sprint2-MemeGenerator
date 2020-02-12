@@ -15,6 +15,11 @@ let gMeme = {
     ]
 }
 
+function setSelectedLineFontSize(fontSizeDiff) {
+    gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDiff;
+    renderCanvas();
+}
+
 function getImagesUrls() {
     return gImages;
 }

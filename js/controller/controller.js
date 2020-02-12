@@ -13,6 +13,10 @@ function init() {
     renderImgGallery();
 }
 
+function onFontSizeChange(fontDiff) {
+    setSelectedLineFontSize(fontDiff);
+}
+
 function onImageClick(elImg) {
     setSelectedImgId(elImg.dataset.imgid);
     renderCanvas();
