@@ -22,7 +22,7 @@ function getImagesUrls() {
 function loadImages() {
     let numOfImages = 2;
     for (let i = 1; i <= numOfImages; i++) {
-        let currImgUrl = `/images/square/${i}.jpg`;
+        let currImgUrl = `../../images/square/${i}.jpg`;
         gImages.push(currImgUrl);
     }
 }
