@@ -71,10 +71,6 @@ function setSelectedLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt;
 }
 
-function getMeme() {
-    return gMeme;
-}
-
 function getBgImg() {
     return gImages[gMeme.selectedImgId - 1];
 }
@@ -86,14 +82,3 @@ function getAllTxtLines() {
 function setSelectedImgId(imgId) {
     gMeme.selectedImgId = imgId;
 }
-
-function getSelctedTxtLine() {
-    return gMeme.lines[gMeme.selectedLineIdx];
-}
-
-function getSelectedLineIdx() {
-    return gMeme.selectedLineIdx;
-}
-
-
-
