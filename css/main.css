@@ -69,24 +69,22 @@ body {
 
 .gallery-container {
     height: 950px;
-    display: flex;
-    flex-direction: column;
 }
 
 .gallery-search-nav-container {
     height: 100px;
-    background-color: cyan;
 }
 
 .gallery-images-container {
-    background-color: red;
-    height: 850px;
+    background-color: #e3e3e3;
     padding-top: 15px;
-    display: grid;
+}
+
+.images-grid {
+    height: 850px;
     grid-template-columns: repeat(3, 350px);
     grid-template-rows: repeat(3, 250px);
     gap: 15px;
-    /* align-self: center; */
 }
 
 .card {
@@ -128,4 +126,8 @@ body {
 
 .justify-content-center {
     justify-content: center;
+}
+
+.grid {
+    display: grid;
 }
