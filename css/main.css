@@ -2,6 +2,32 @@
     box-sizing: border-box;
 }
 
+/* Typography */
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url('/fonts/Montserrat-Thin.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('/fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('/fonts/Montserrat-Bold.ttf');
+}
+
+html {
+    font-family: Montserrat;
+}
+
 body {
     display: flex;
     flex-direction: column;
