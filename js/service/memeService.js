@@ -60,7 +60,7 @@ function getImages() {
 }
 
 function loadImages() {
-    let numOfImages = 2;
+    let numOfImages = 9;
     for (let i = 1; i <= numOfImages; i++) {
         let currImg = { url: `images/square/${i}.jpg`, id: i };
         gImages.push(currImg);

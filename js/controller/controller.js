@@ -6,10 +6,10 @@ let gBgImg;
 
 function init() {
     loadImages();
-    gElCanvas = document.getElementById('canvas');
-    gCtx = gElCanvas.getContext('2d');
-    gBgImg = new Image();
-    renderCanvas();
+    // gElCanvas = document.getElementById('canvas');
+    // gCtx = gElCanvas.getContext('2d');
+    // gBgImg = new Image();
+    // renderCanvas();
     renderImgGallery();
 }
 
@@ -26,19 +26,21 @@ function onFontSizeChange(fontDiff) {
     setSelectedLineFontSize(fontDiff);
 }
 
-function onImageClick(elImg) {
+function onGalleryImageClick(elImg) {
     setSelectedImgId(elImg.dataset.imgid);
     renderCanvas();
 }
 
 function renderImgGallery() {
-    let elImgGallery = document.querySelector('.image-gallery');
+    let elImgGallery = document.querySelector('.images-gallery');
     let images = getImages();
     images.forEach((image) => elImgGallery.innerHTML += getImgHtml(image));
 }
 
 function getImgHtml(image) {
-    let imgHTML = `<img src="${image.url}" data-imgid=${image.id} onclick="onImageClick(this)">`;
+    let imgWidth = 250;
+    let imgHeight = 250;
+    let imgHTML = `<img src="${image.url}" height="${imgHeight}" width="${imgWidth}" data-imgid=${image.id} onclick="onGalleryImageClick(this)">`;
     return imgHTML;
 }
 
