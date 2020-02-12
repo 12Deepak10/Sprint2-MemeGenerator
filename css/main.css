@@ -75,6 +75,8 @@ body {
 
 .main-footer {
     grid-row: 11 / 12;
+    height: 200px;
+    background-color: #ff7f00;
 }
 
 /* helpers */
@@ -89,10 +91,18 @@ body {
     display: flex;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 .align-items-center {
     align-items: center;
 }
 
 .justify-content-between {
     justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
 }
