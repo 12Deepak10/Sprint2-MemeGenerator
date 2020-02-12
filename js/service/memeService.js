@@ -13,6 +13,10 @@ let gMeme = {
     ]
 }
 
+function setSelectedLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
+}
+
 function getMeme() {
     return gMeme;
 }

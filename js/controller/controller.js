@@ -2,20 +2,26 @@
 
 let gElCanvas;
 let gCtx;
+let gBgImg;
 
 function init() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
+    gBgImg = new Image();
     renderMeme();
 }
 
 function renderMeme() {
-    let bgImg = new Image();
-    bgImg.src = getBgImgUrl();
-    bgImg.onload = () => {
-        gCtx.drawImage(bgImg, 0, 0, gElCanvas.width, gElCanvas.height);
+    gBgImg.src = getBgImgUrl();
+    gBgImg.onload = () => {
+        gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
         drawTextLines();
     }
+}
+
+function onTextLineInputChange(txt) {
+    setSelectedLineTxt(txt);
+    renderMeme();
 }
 
 function drawTextLines() {
