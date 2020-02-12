@@ -87,6 +87,7 @@ body {
     grid-auto-rows: 280px;
     gap: 15px;
     height: 900px;
+    background-color: cyan;
 }
 
 .card {
