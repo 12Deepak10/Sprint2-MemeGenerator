@@ -3,7 +3,7 @@
 let gImages = [];
 
 let gMeme = {
-    selectedImgId: 3,
+    selectedImgId: 2,
     selectedLineIdx: 0,
     lines: [
         {
@@ -36,8 +36,7 @@ function getMeme() {
 }
 
 function getBgImgUrl() {
-    let imgUrl = `/images/square/${gMeme.selectedImgId}.jpg`;
-    return imgUrl;
+    return gImages[gMeme.selectedImgId - 1];
 }
 
 function getAllTxtLines() {
