@@ -6,10 +6,6 @@ let gBgImg;
 
 function init() {
     loadImages();
-    // gElCanvas = document.getElementById('canvas');
-    // gCtx = gElCanvas.getContext('2d');
-    // gBgImg = new Image();
-    // renderCanvas();
     renderImgGallery();
 }
 
@@ -46,6 +42,10 @@ function showEditor() {
     console.log('in show canvas');
     let elGallery = document.querySelector('.editor-container');
     elGallery.style.display = 'flex';
+    gElCanvas = document.getElementById('canvas');
+    gCtx = gElCanvas.getContext('2d');
+    gBgImg = new Image();
+    renderCanvas();
 }
 
 function renderImgGallery() {
