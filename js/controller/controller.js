@@ -9,6 +9,11 @@ function init() {
     renderImgGallery();
 }
 
+function onRemoveSelectedLine() {
+    removeSelectedLine();
+    renderCanvas();
+}
+
 function onChangeLine() {
     setNextLineAsSelected();
 }
@@ -92,28 +97,42 @@ function drawTextLines() {
 
 function drawTextLine(textLine, textLineIndex) {
     let defaultFontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    let fontFamily = textLine.font ? textLine.font : defaultFontFamily;
+
     let defaultFontSize = 50;
-    let font = textLine.font ? textLine.font : defaultFontFamily;
     let fontSize = textLine.size ? textLine.size : defaultFontSize;
-    
-    gCtx.font = `${fontSize}px ${font}`;
-    gCtx.textAlign = textLine.align ? textLine.align : 'center';
-    gCtx.fillStyle = textLine.fontColor ? textLine.fontColor : 'white';
-    gCtx.strokeStyle = textLine.strokeColor ? textLine.strokeColor : 'black';
+
+    let defaultTextAlign = 'center';
+    let textAlign = textLine.align ? textLine.align : defaultTextAlign;
+
+    let defaultFillStyle = 'white';
+    let fillStyle = textLine.fontColor ? textLine.fontColor : defaultFillStyle;
+
+    let defaultStrokeStyle = 'black';
+    let strokeStyle = textLine.strokeColor ? textLine.strokeColor : defaultStrokeStyle;
+
+    gCtx.font = `${fontSize}px ${fontFamily}`;
+    gCtx.textAlign = textAlign;
+    gCtx.fillStyle = fillStyle;
+    gCtx.strokeStyle = strokeStyle;
+
+    let defaultPosX = gElCanvas.width / 2;
+    let posX = textLine.pos.x ? textLine.pos.x : defaultPosX;
+    let posY;
+    let baseLine;
 
     if (textLineIndex === 0) {
-        textLine.pos.y = textLine.pos.y ? textLine.pos.y : 0;
-        textLine.baseLine = 'top';
+        posY = textLine.pos.y ? textLine.pos.y : 0;
+        baseLine = 'top';
     } else if (textLineIndex === 1) {
-        textLine.pos.y = textLine.pos.y ? textLine.pos.y : gElCanvas.height;
-        textLine.baseLine = 'bottom';
+        posY = textLine.pos.y ? textLine.pos.y : gElCanvas.height;
+        baseLine = 'bottom';
     } else {
-        textLine.pos.y = textLine.pos.y ? textLine.pos.y : gElCanvas.height / 2;
-        textLine.baseLine = 'middle';
+        posY = textLine.pos.y ? textLine.pos.y : gElCanvas.height / 2;
+        baseLine = 'middle';
     }
 
-    textLine.pos.x = textLine.pos.x ? textLine.pos.x : gElCanvas.width / 2;
-    gCtx.textBaseline = textLine.baseLine;
-    gCtx.fillText(textLine.txt, textLine.pos.x, textLine.pos.y);
-    gCtx.strokeText(textLine.txt, textLine.pos.x, textLine.pos.y);
+    gCtx.textBaseline = baseLine;
+    gCtx.fillText(textLine.txt, posX, posY);
+    gCtx.strokeText(textLine.txt, posX, posY);
 }

@@ -8,6 +8,16 @@ let gMeme = {
     lines: _createInitialLines()
 }
 
+function removeSelectedLine() {
+    let lineToRemove = _getSelectedLine();
+    let lineToRemoveIdx = gMeme.lines.findIndex(line => line.id === lineToRemove.id);
+    gMeme.lines.splice(lineToRemoveIdx, 1);
+    gMeme.selectedLineIdx = lineToRemoveIdx - 1 > 0 ? lineToRemoveIdx - 1 : 0;
+    if (gMeme.lines.length === 0) {
+        gMeme.selectedLineIdx = null;
+    }
+}
+
 function setNextLineAsSelected() {
     gMeme.selectedLineIdx++;
 
@@ -84,8 +94,8 @@ function _createInitialLines() {
 
 function _createLine(lineTxt) {
     let line = {
-        id: Math.random() * 1000,
-        txt: 'first text',
+        id: Math.round(Math.random() * 1000),
+        txt: lineTxt,
         font: null,
         size: null,
         fontColor: null,
