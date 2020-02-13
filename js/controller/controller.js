@@ -35,7 +35,6 @@ function hideGallery() {
     console.log('in hide gallery');
     let elGallery = document.querySelector('.gallery-container');
     elGallery.style.display = 'none';
-
 }
 
 function showEditor() {
