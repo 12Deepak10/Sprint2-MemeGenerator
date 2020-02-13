@@ -76,6 +76,8 @@ function onGalleryImageClick(elImg) {
     showEditor();
     setSelectedImgId(elImg.dataset.imgid);
     renderCanvas();
+    let elGalleryNavBtn = document.querySelector('.gallery-link');
+    elGalleryNavBtn.classList.remove('active');
 }
 
 function showGallery() {
