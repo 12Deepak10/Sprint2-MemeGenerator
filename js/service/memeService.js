@@ -2,10 +2,30 @@
 
 let gImages = [];
 
+let gLineDefaults = {
+    txt: 'Write your text here',
+    font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+    size: 50,
+    fontColor: 'white',
+    strokeColor: 'black',
+    align: 'center'
+}
+
+let gCanvasHeight;
+let gCanvasWidth;
+
 let gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
     lines: _createInitialLines()
+}
+
+function updateCanvasWidth(canvasWidth) {
+    gCanvasWidth = canvasWidth;
+}
+
+function updateCanvasHeight(canvasHeight) {
+    gCanvasHeight = canvasHeight;
 }
 
 function addLine() {
@@ -96,21 +116,50 @@ function _createInitialLines() {
     return lines;
 }
 
-function _createLine(lineTxt = "Write your text here") {
+function _createLine(lineIdx) {
     let line = {
         id: Math.round(Math.random() * 1000),
-        txt: lineTxt,
-        font: null,
-        size: null,
-        fontColor: null,
-        strokeColor: null,
-        align: null,
+        txt: gLineDefaults.txt,
+        font: gLineDefaults.font,
+        size: gLineDefaults.size,
+        fontColor: gLineDefaults.fontColor,
+        strokeColor: gLineDefaults.strokeColor,
+        align: gLineDefaults.align,
         pos: {
-            x: null,
-            y: null
+            x: gCanvasWidth / 2,
+            y: _getLinePosYByIdx(lineIdx)
         },
-        baseLine: null
+        baseLine: _getLineBaseLineByIdx(lineIdx)
     }
 
     return line;
+}
+
+function _getLinePosYByIdx(lineIdx) {
+    let posY;
+
+    if (lineIdx === 0) {
+        posY = 0;
+    } else if (lineIdx === 1) {
+        posY = gCanvasHeight;
+    } else {
+        posY = gCanvasHeight / 2;
+    }
+
+    return posY;
+}
+
+
+function _getLineBaseLineByIdx(lineIdx) {
+    let baseLine;
+
+    if (lineIdx === 0) {
+        baseLine = 'top';
+    } else if (lineIdx === 1) {
+        baseLine = 'bottom';
+    } else {
+        baseLine = 'middle';
+    }
+
+    return baseLine;
 }

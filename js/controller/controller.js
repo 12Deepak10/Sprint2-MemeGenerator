@@ -65,6 +65,8 @@ function showEditor() {
     elGallery.style.display = 'flex';
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
+    updateCanvasWidth(gElCanvas.width);
+    updateCanvasHeight(gElCanvas.height);
     gBgImg = new Image();
     renderCanvas();
 }
