@@ -11,7 +11,7 @@ let gMeme = {
             font: null,
             size: 50,
             align: null,
-            fillColor: null,
+            fontColor: null,
             strokeColor: null,
             pos: {
                 x: null,
@@ -24,7 +24,7 @@ let gMeme = {
             font: null,
             size: 40,
             align: null,
-            fillColor: null,
+            fontColor: null,
             strokeColor: null,
             pos: {
                 x: null,
@@ -37,7 +37,7 @@ let gMeme = {
             font: null,
             size: 90,
             align: null,
-            fillColor: null,
+            fontColor: null,
             strokeColor: null,
             pos: {
                 x: null,
@@ -70,6 +70,16 @@ function setSelectedLineFontSize(fontSizeDiff) {
     gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDiff;
 }
 
+function setSelectedLineFontColor(fontColor) {
+    let selectedLine = _getSelectedLine();
+    selectedLine.fontColor = fontColor;
+}
+
+function setSelectedLineStrokeColor(strokeColor) {
+    let selectedLine = _getSelectedLine();
+    selectedLine.strokeColor = strokeColor;
+}
+
 function getImages() {
     return gImages;
 }
@@ -96,4 +106,8 @@ function getAllTxtLines() {
 
 function setSelectedImgId(imgId) {
     gMeme.selectedImgId = imgId;
+}
+
+function _getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx];
 }

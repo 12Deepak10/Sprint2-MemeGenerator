@@ -28,6 +28,16 @@ function onFontSizeChange(fontDiff) {
     renderCanvas();
 }
 
+function onFontColorChange(fontColor) {
+    setSelectedLineFontColor(fontColor);
+    renderCanvas();
+}
+
+function onStrokeColorChange(strokeColor) {
+    setSelectedLineStrokeColor(strokeColor);
+    renderCanvas();
+}
+
 function onGalleryImageClick(elImg) {
     hideGallery();
     showEditor();
@@ -85,7 +95,7 @@ function drawTextLine(textLine, textLineIndex) {
     let font = textLine.font ? textLine.font : defaultFontFamily;
     gCtx.font = `${textLine.size}px ${font}`;
     gCtx.textAlign = textLine.align ? textLine.align : 'center';
-    gCtx.fillStyle = textLine.fillColor ? textLine.fillColor : 'white';
+    gCtx.fillStyle = textLine.fontColor ? textLine.fontColor : 'white';
     gCtx.strokeStyle = textLine.strokeColor ? textLine.strokeColor : 'black';
 
     if (textLineIndex === 0) {
