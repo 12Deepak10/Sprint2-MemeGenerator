@@ -133,8 +133,6 @@ a, a:link, a:hover, a:visited, a:active {
 }
 
 .settings-container {
-    height: 500px;
-    width: 500px;
     background-color: green;
 }
 
