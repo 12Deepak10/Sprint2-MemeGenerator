@@ -101,7 +101,7 @@ function getImages() {
 }
 
 function loadImages() {
-    let numOfImages = 9;
+    let numOfImages = 18;
     for (let i = 1; i <= numOfImages; i++) {
         let currImg = { url: `images/square/${i}.jpg`, id: i };
         gImages.push(currImg);
