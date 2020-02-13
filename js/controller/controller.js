@@ -23,7 +23,6 @@ function onFontSizeChange(fontDiff) {
 }
 
 function onGalleryImageClick(elImg) {
-    console.log('in galery image click');
     hideGallery();
     showEditor();
 
@@ -32,13 +31,11 @@ function onGalleryImageClick(elImg) {
 }
 
 function hideGallery() {
-    console.log('in hide gallery');
     let elGallery = document.querySelector('.gallery-container');
     elGallery.style.display = 'none';
 }
 
 function showEditor() {
-    console.log('in show canvas');
     let elGallery = document.querySelector('.editor-container');
     elGallery.style.display = 'flex';
     gElCanvas = document.getElementById('canvas');
