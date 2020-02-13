@@ -67,11 +67,13 @@ body {
     background-color: #8a8a8a;
 }
 
-/* Gallery */
+/* main */
 
-.gallery-container {
+.main-content {
     height: 950px;
 }
+
+/* Gallery */
 
 .gallery-search-nav-container {
     height: 100px;
@@ -81,20 +83,21 @@ body {
     background-color: #e3e3e3;
     padding-top: 50px;
     padding-bottom: 50px;
+    height: 850px;
 }
 
 .images-grid {
-    block-size: 500px;
-    height: 850px;
     grid-template-columns: repeat(3, 250px);
     grid-template-rows: repeat(3, 250px);
     gap: 15px;
 }
 
-.card {
-    background-color: pink;
-    font-weight: bold;
-    text-align: center;
+/* Editor */
+
+.editor {
+    height: 200px;
+    width: 200px;
+    background-color: cyan;
 }
 
 /* footer */

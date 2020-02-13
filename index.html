@@ -9,6 +9,7 @@
 </head>
 
 <body onload="init()">
+    <!-- header -->
     <header class="flex align-items-center justify-content-between container main-header">
         <img src="icons/logo/logo-small.png" class="logo" />
         <nav class="main-nav">
@@ -20,25 +21,29 @@
         </nav>
     </header>
 
-    <main class="flex flex-column gallery-container">
-        <!-- Gallery -->
-        <section class="flex container align-items-center justify-content-between gallery-search-nav-container">
-            <input type="text" class="gallery-search" placeholder="Enter search keyword"></div>
-            <div class="gallery-keywords">Stam words bla bla</div>
-            <button class="gallery-more-btn">More...</button>
-        </section>
+    <!-- main -->
+    <main class="main-content">
+        <!-- Gallery start -->
+        <div class="flex flex-column gallery-container">
+            <section class="flex container align-items-center justify-content-between gallery-search-nav-container">
+                <input type="text" class="gallery-search" placeholder="Enter search keyword"></input>
+                <div class="gallery-keywords">Stam words bla bla</div>
+                <button class="gallery-more-btn">More...</button>
+            </section>
+            <section class="flex align-items-center justify-content-center container gallery-images-container">
+                <div class="grid images-grid images-gallery"></div>
+            </section>
+        </div>
+        <!-- Gallery end -->
 
-        <section class="flex align-items-center justify-content-center container gallery-images-container">
-            <div class="grid images-grid images-gallery">
-            </div>
-        </section>
-
-        <!-- Editor -->
+        <!-- Editor start-->
         <!-- <section class="editor">
             editor
         </section> -->
+        <!-- Editor end-->
     </main>
 
+    <!-- footer -->
     <footer class="flex flex-column align-items-center justify-content-center main-footer">
         <img src="icons/logo/logo-small.png" class="flex justify-content-center logo" />
         <div class="copyright">all rights reserved 2019</div>
