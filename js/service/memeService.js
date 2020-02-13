@@ -8,6 +8,10 @@ let gMeme = {
     lines: _createInitialLines()
 }
 
+function addLine() {
+    gMeme.lines.push(_createLine());
+}
+
 function removeSelectedLine() {
     let lineToRemove = _getSelectedLine();
     let lineToRemoveIdx = gMeme.lines.findIndex(line => line.id === lineToRemove.id);
@@ -92,7 +96,7 @@ function _createInitialLines() {
     return lines;
 }
 
-function _createLine(lineTxt) {
+function _createLine(lineTxt = "Write your text here") {
     let line = {
         id: Math.round(Math.random() * 1000),
         txt: lineTxt,

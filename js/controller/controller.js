@@ -9,6 +9,11 @@ function init() {
     renderImgGallery();
 }
 
+function onAddLine() {
+    addLine();
+    renderCanvas();
+}
+
 function onRemoveSelectedLine() {
     removeSelectedLine();
     renderCanvas();
