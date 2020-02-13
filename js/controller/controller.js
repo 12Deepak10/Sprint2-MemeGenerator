@@ -20,6 +20,12 @@ function onDownloadMeme(elDownloadLink) {
     elDownloadLink.download = 'meme.png';
 }
 
+function onGalleryNavBtnClick(elGalleryBtn) {
+    onNavBtnClick(elGalleryBtn);
+    hideEditor();
+    showGallery();
+}
+
 function onNavBtnClick(elNavBtn) {
     let elNavBtns = document.querySelectorAll('.main-nav li');
     elNavBtns.forEach(navBtn => navBtn.classList.remove('active'));
@@ -72,6 +78,11 @@ function onGalleryImageClick(elImg) {
     renderCanvas();
 }
 
+function showGallery() {
+    let elGallery = document.querySelector('.gallery-container');
+    elGallery.style.display = 'flex';
+}
+
 function hideGallery() {
     let elGallery = document.querySelector('.gallery-container');
     elGallery.style.display = 'none';
@@ -87,6 +98,11 @@ function showEditor() {
     initGmeme();
     gBgImg = new Image();
     renderCanvas();
+}
+
+function hideEditor() {
+    let elGallery = document.querySelector('.editor-container');
+    elGallery.style.display = 'none';
 }
 
 function renderImgGallery() {
