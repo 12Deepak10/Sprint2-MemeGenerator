@@ -18,8 +18,14 @@ function onLineHeightChange(yPosDiff) {
     renderCanvas();
 }
 
+function onFontFamilyChange(fontFamily) {
+    setSelectedLineFontFamily(fontFamily);
+    renderCanvas();
+}
+
 function onFontSizeChange(fontDiff) {
     setSelectedLineFontSize(fontDiff);
+    renderCanvas();
 }
 
 function onGalleryImageClick(elImg) {
@@ -75,8 +81,9 @@ function drawTextLines() {
 }
 
 function drawTextLine(textLine, textLineIndex) {
-    let fontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
-    gCtx.font = `${textLine.size}px ${fontFamily}`;
+    let defaultFontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    let font = textLine.font ? textLine.font : defaultFontFamily;
+    gCtx.font = `${textLine.size}px ${font}`;
     gCtx.textAlign = textLine.align ? textLine.align : 'center';
     gCtx.fillStyle = textLine.fillColor ? textLine.fillColor : 'white';
     gCtx.strokeStyle = textLine.strokeColor ? textLine.strokeColor : 'black';

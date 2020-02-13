@@ -66,8 +66,9 @@
 
                     <!-- text font decorations -->
                     <div class="text-font-decorations-container">
-                        <select name="text-font-select" id="text-font-select">
+                        <select name="text-font-select" id="text-font-select" onchange="onFontFamilyChange(this.value)">
                             <option value="impact">Impact</option>
+                            <option value="arial">Arial</option>
                         </select>
                         <button class="text-fill-btn">text fill</button>
                         <button class="text-color-btn">text-color</button>

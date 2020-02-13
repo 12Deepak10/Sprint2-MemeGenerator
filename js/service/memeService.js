@@ -8,6 +8,7 @@ let gMeme = {
     lines: [
         {
             txt: 'first text',
+            font: null,
             size: 50,
             align: null,
             fillColor: null,
@@ -20,6 +21,7 @@ let gMeme = {
         },
         {
             txt: 'second text',
+            font: null,
             size: 40,
             align: null,
             fillColor: null,
@@ -32,6 +34,7 @@ let gMeme = {
         },
         {
             txt: 'third text',
+            font: null,
             size: 90,
             align: null,
             fillColor: null,
@@ -59,9 +62,12 @@ function setSelectedLineYPos(yPosDiff) {
     }
 }
 
+function setSelectedLineFontFamily(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].font = fontFamily;
+}
+
 function setSelectedLineFontSize(fontSizeDiff) {
     gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDiff;
-    renderCanvas();
 }
 
 function getImages() {
