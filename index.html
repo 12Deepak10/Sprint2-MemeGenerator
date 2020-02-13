@@ -36,24 +36,55 @@
         </div>
         <!-- Gallery end -->
 
-        <!-- Editor start-->
+        <!-- Editor start (hidden as default)-->
         <section class="container align-items-center justify-content-between editor-container">
+            <!-- canvas -->
             <section class="canvas-container">
                 <canvas id="canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
             </section>
+            <!-- meme settings -->
             <section class="flex flex-column align-items-center justify-content-center settings-container">
-                settings
-                <div class="">Current row text</div>
-                <div class="">Current row position actions</div>
-                <div class="">Current row text actions continer
-                    <div class="">text size and alignment</div>
-                    <div class="">font, font color, fill</div>
+                <input type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
+                <!-- line positioning -->
+                <div class="row-position-btns-container">
+                    <button class="change-line" onclick="onChangeLine()">Change line</button>
+                    <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
+                    <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button>
+                    <button class="add-line-btn">add line</button>
+                    <button class="remove-selected-line-btn">remove selected line</button>
                 </div>
-                <div class="">stickers</div>
-                <div class="">socials</div>
+                <!-- text actions -->
+                <div class="text-actions-btns-container">
+                    <!-- text align -->
+                    <div class="text-size-align-btns-container">
+                        <button class="increase-font-btn" onclick="onFontSizeChange(1)">Increase font</button>
+                        <button class="decrease-font-btn" onclick="onFontSizeChange(-1)">Decrease font</button>
+                        <button class="text-align-left-btn">left</button>
+                        <button class="text-align-center-btn">center</button>
+                        <button class="text-align-right-btn">right</button>
+                    </div>
+
+                    <!-- text font decorations -->
+                    <div class="text-font-decorations-container">
+                        <select name="text-font-select" id="text-font-select">
+                            <option value="impact">Impact</option>
+                        </select>
+                        <button class="text-fill-btn">text fill</button>
+                        <button class="text-color-btn">text-color</button>
+                    </div>
+                </div>
+
+                <!-- stickers -->
+                <div class="stickers-container">stickers</div>
+
+                <!-- socials -->
+                <div class="socials-btns">
+                    <button class="share-btn">Share</button>
+                </div>
             </section>
         </section>
         <!-- Editor end-->
+
     </main>
 
     <!-- footer -->
@@ -61,23 +92,6 @@
         <img src="icons/logo/logo-small.png" class="flex justify-content-center logo" />
         <div class="copyright">all rights reserved 2019</div>
     </footer>
-
-    <!-- <label for="text-line-input">
-        Line content:
-        <input type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
-    </label>
-    <button class="increase-font" onclick="onFontSizeChange(1)">Increase font</button>
-    <button class="decrease-font" onclick="onFontSizeChange(-1)">Decrease font</button>
-    <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
-    <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button>
-    <button class="change-line" onclick="onChangeLine()">Change line</button>
-    <section class="canvas-container">
-        <canvas id="canvas" height="499" width="499" style="border: 1px solid black;"></canvas>
-    </section>
-
-    <section class="image-gallery">
-        <img src="" alt="">
-    </section> -->
 
     <script src="js/service/memeService.js"></script>
     <script src="js/controller/controller.js"></script>
