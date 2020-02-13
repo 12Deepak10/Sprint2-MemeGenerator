@@ -92,7 +92,7 @@ function renderImgGallery() {
 function getImgHtml(image) {
     let imgWidth = 250;
     let imgHeight = 250;
-    let imgHTML = `<img src="${image.url}" height="${imgHeight}" width="${imgWidth}" data-imgid=${image.id} onclick="onGalleryImageClick(this)">`;
+    let imgHTML = `<img src="${image.url}" height="${imgHeight}" width="${imgWidth}" data-imgid=${image.id} class="gallery-image" onclick="onGalleryImageClick(this)">`;
     return imgHTML;
 }
 
