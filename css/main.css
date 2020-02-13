@@ -69,10 +69,6 @@ body {
 
 /* main */
 
-.main-content {
-    height: 950px;
-}
-
 /* Gallery */
 
 .gallery-search-nav-container {
@@ -94,10 +90,17 @@ body {
 
 /* Editor */
 
-.editor {
-    height: 200px;
-    width: 200px;
+.editor-container {
     background-color: cyan;
+    display: none;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.settings-container {
+    height: 500px;
+    width: 500px;
+    background-color: green;
 }
 
 /* footer */
