@@ -13,8 +13,8 @@ function onChangeLine() {
     setNextLineAsSelected();
 }
 
-function onLineHeightChange(lineHeightDiff) {
-    setSelectedLineHeight(lineHeightDiff);
+function onLineHeightChange(yPosDiff) {
+    setSelectedLineYPos(yPosDiff);
     renderCanvas();
 }
 
@@ -25,7 +25,6 @@ function onFontSizeChange(fontDiff) {
 function onGalleryImageClick(elImg) {
     hideGallery();
     showEditor();
-
     setSelectedImgId(elImg.dataset.imgid);
     renderCanvas();
 }
@@ -78,22 +77,23 @@ function drawTextLines() {
 function drawTextLine(textLine, textLineIndex) {
     let fontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
     gCtx.font = `${textLine.size}px ${fontFamily}`;
-    gCtx.textAlign = textLine.align;
-    gCtx.fillStyle = textLine.fillColor;
-    gCtx.strokeStyle = textLine.strokeColor;
+    gCtx.textAlign = textLine.align ? textLine.align : 'center';
+    gCtx.fillStyle = textLine.fillColor ? textLine.fillColor : 'white';
+    gCtx.strokeStyle = textLine.strokeColor ? textLine.strokeColor : 'black';
 
     if (textLineIndex === 0) {
-        textLine.height = textLine.height ? textLine.height : 0;
+        textLine.pos.y = textLine.pos.y ? textLine.pos.y : 0;
         textLine.baseLine = 'top';
     } else if (textLineIndex === 1) {
-        textLine.height = textLine.height ? textLine.height : gElCanvas.height;
+        textLine.pos.y = textLine.pos.y ? textLine.pos.y : gElCanvas.height;
         textLine.baseLine = 'bottom';
     } else {
-        textLine.height = textLine.height ? textLine.height : gElCanvas.height / 2;
+        textLine.pos.y = textLine.pos.y ? textLine.pos.y : gElCanvas.height / 2;
         textLine.baseLine = 'middle';
     }
 
+    textLine.pos.x = textLine.pos.x ? textLine.pos.x : gElCanvas.width / 2;
     gCtx.textBaseline = textLine.baseLine;
-    gCtx.fillText(textLine.txt, gElCanvas.width / 2, textLine.height);
-    gCtx.strokeText(textLine.txt, gElCanvas.width / 2, textLine.height);
+    gCtx.fillText(textLine.txt, textLine.pos.x, textLine.pos.y);
+    gCtx.strokeText(textLine.txt, textLine.pos.x, textLine.pos.y);
 }
