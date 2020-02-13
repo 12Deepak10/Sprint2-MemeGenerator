@@ -46,6 +46,23 @@ function removeSelectedLine() {
     }
 }
 
+function alignSelectedLine(textAlign) {
+    let selectedLine = _getSelectedLine();
+    selectedLine.align = textAlign;
+
+    switch (textAlign) {
+        case 'left':
+            selectedLine.pos.x = 0;
+            break;
+        case 'center':
+            selectedLine.pos.x = gCanvasWidth / 2;
+            break;
+        case 'right':
+            selectedLine.pos.x = gCanvasHeight;
+            break;
+    }
+}
+
 function setNextLineAsSelected() {
     gMeme.selectedLineIdx++;
 

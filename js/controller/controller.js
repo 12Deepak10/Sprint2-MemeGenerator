@@ -9,6 +9,11 @@ function init() {
     renderImgGallery();
 }
 
+function onTextAlignChange(textAlign) {
+    alignSelectedLine(textAlign);
+    renderCanvas();
+}
+
 function onAddLine() {
     addLine();
     renderCanvas();
