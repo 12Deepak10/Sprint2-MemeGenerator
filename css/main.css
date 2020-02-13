@@ -75,17 +75,15 @@ body {
     height: 100px;
 }
 
-.gallery-images-container {
+.images-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    row-gap: 10px;
+}
+
+.images-gallery {
     background-color: #e3e3e3;
     padding-top: 50px;
     padding-bottom: 50px;
-    height: 850px;
-}
-
-.images-grid {
-    grid-template-columns: repeat(3, 250px);
-    grid-template-rows: repeat(3, 250px);
-    gap: 15px;
 }
 
 /* Editor */
