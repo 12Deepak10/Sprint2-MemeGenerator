@@ -20,6 +20,12 @@ function onDownloadMeme(elDownloadLink) {
     elDownloadLink.download = 'meme.png';
 }
 
+function onNavBtnClick(elNavBtn) {
+    let elNavBtns = document.querySelectorAll('.main-nav li');
+    elNavBtns.forEach(navBtn => navBtn.classList.remove('active'));
+    elNavBtn.classList.add('active');
+}
+
 function onAddLine() {
     addLine();
     renderCanvas();
