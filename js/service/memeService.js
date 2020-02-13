@@ -5,20 +5,16 @@ let gImages = [];
 let gLineDefaults = {
     txt: 'Write your text here',
     font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-    size: 50,
+    fontSize: 50,
     fontColor: 'white',
     strokeColor: 'black',
-    align: 'center'
+    align: 'center',
+    numOfInitLines: 2
 }
 
 let gCanvasHeight;
 let gCanvasWidth;
-
-let gMeme = {
-    selectedImgId: 2,
-    selectedLineIdx: 0,
-    lines: _createInitialLines()
-}
+let gMeme = {};
 
 function updateCanvasWidth(canvasWidth) {
     gCanvasWidth = canvasWidth;
@@ -26,6 +22,14 @@ function updateCanvasWidth(canvasWidth) {
 
 function updateCanvasHeight(canvasHeight) {
     gCanvasHeight = canvasHeight;
+}
+
+function initGmeme() {
+    gMeme = {
+        selectedImgId: 2,
+        selectedLineIdx: 0,
+        lines: _createInitialLines()
+    }
 }
 
 function addLine() {
@@ -36,7 +40,7 @@ function removeSelectedLine() {
     let lineToRemove = _getSelectedLine();
     let lineToRemoveIdx = gMeme.lines.findIndex(line => line.id === lineToRemove.id);
     gMeme.lines.splice(lineToRemoveIdx, 1);
-    gMeme.selectedLineIdx = lineToRemoveIdx - 1 > 0 ? lineToRemoveIdx - 1 : 0;
+    gMeme.selectedLineIdx = lineToRemoveIdx + 1 > gMeme.lines.length - 1 ? gMeme.lines.length - 1 : lineToRemoveIdx + 1;
     if (gMeme.lines.length === 0) {
         gMeme.selectedLineIdx = null;
     }
@@ -51,17 +55,18 @@ function setNextLineAsSelected() {
 }
 
 function setSelectedLineYPos(yPosDiff) {
-    if (gMeme.lines[gMeme.selectedLineIdx].pos.y !== null) {
-        gMeme.lines[gMeme.selectedLineIdx].pos.y += yPosDiff;
-    }
+    let selectedLine = _getSelectedLine();
+    selectedLine.pos.y += yPosDiff;
 }
 
 function setSelectedLineFontFamily(fontFamily) {
-    gMeme.lines[gMeme.selectedLineIdx].font = fontFamily;
+    let selectedLine = _getSelectedLine();
+    selectedLine.font = fontFamily;
 }
 
 function setSelectedLineFontSize(fontSizeDiff) {
-    gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDiff;
+    let selectedLine = _getSelectedLine();
+    selectedLine.fontSize += fontSizeDiff;
 }
 
 function setSelectedLineFontColor(fontColor) {
@@ -87,7 +92,8 @@ function loadImages() {
 }
 
 function setSelectedLineTxt(txt) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt;
+    let selectedLine = _getSelectedLine();
+    selectedLine.txt = txt;
 }
 
 function getBgImg() {
@@ -109,8 +115,8 @@ function _getSelectedLine() {
 function _createInitialLines() {
     let lines = [];
 
-    for (let i = 0; i < 2; i++) {
-        lines.push(_createLine(`Line number ${i + 1}`));
+    for (let i = 0; i < gLineDefaults.numOfInitLines; i++) {
+        lines.push(_createLine(i));
     }
 
     return lines;
@@ -121,7 +127,7 @@ function _createLine(lineIdx) {
         id: Math.round(Math.random() * 1000),
         txt: gLineDefaults.txt,
         font: gLineDefaults.font,
-        size: gLineDefaults.size,
+        fontSize: gLineDefaults.fontSize,
         fontColor: gLineDefaults.fontColor,
         strokeColor: gLineDefaults.strokeColor,
         align: gLineDefaults.align,

@@ -67,6 +67,7 @@ function showEditor() {
     gCtx = gElCanvas.getContext('2d');
     updateCanvasWidth(gElCanvas.width);
     updateCanvasHeight(gElCanvas.height);
+    initGmeme();
     gBgImg = new Image();
     renderCanvas();
 }
@@ -99,47 +100,15 @@ function onTextLineInputChange(txt) {
 
 function drawTextLines() {
     let txtLines = getAllTxtLines();
-    txtLines.forEach((txtLine, txtLineIdx) => drawTextLine(txtLine, txtLineIdx));
+    txtLines.forEach((txtLine) => drawTextLine(txtLine));
 }
 
-function drawTextLine(textLine, textLineIndex) {
-    let defaultFontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
-    let fontFamily = textLine.font ? textLine.font : defaultFontFamily;
-
-    let defaultFontSize = 50;
-    let fontSize = textLine.size ? textLine.size : defaultFontSize;
-
-    let defaultTextAlign = 'center';
-    let textAlign = textLine.align ? textLine.align : defaultTextAlign;
-
-    let defaultFillStyle = 'white';
-    let fillStyle = textLine.fontColor ? textLine.fontColor : defaultFillStyle;
-
-    let defaultStrokeStyle = 'black';
-    let strokeStyle = textLine.strokeColor ? textLine.strokeColor : defaultStrokeStyle;
-
-    gCtx.font = `${fontSize}px ${fontFamily}`;
-    gCtx.textAlign = textAlign;
-    gCtx.fillStyle = fillStyle;
-    gCtx.strokeStyle = strokeStyle;
-
-    let defaultPosX = gElCanvas.width / 2;
-    let posX = textLine.pos.x ? textLine.pos.x : defaultPosX;
-    let posY;
-    let baseLine;
-
-    if (textLineIndex === 0) {
-        posY = textLine.pos.y ? textLine.pos.y : 0;
-        baseLine = 'top';
-    } else if (textLineIndex === 1) {
-        posY = textLine.pos.y ? textLine.pos.y : gElCanvas.height;
-        baseLine = 'bottom';
-    } else {
-        posY = textLine.pos.y ? textLine.pos.y : gElCanvas.height / 2;
-        baseLine = 'middle';
-    }
-
-    gCtx.textBaseline = baseLine;
-    gCtx.fillText(textLine.txt, posX, posY);
-    gCtx.strokeText(textLine.txt, posX, posY);
+function drawTextLine(textLine) {
+    gCtx.font = `${textLine.fontSize}px ${textLine.font}`;
+    gCtx.textAlign = textLine.align;
+    gCtx.fillStyle = textLine.fontColor;
+    gCtx.strokeStyle = textLine.strokeColor;
+    gCtx.textBaseline = textLine.baseLine;
+    gCtx.fillText(textLine.txt, textLine.pos.x, textLine.pos.y);
+    gCtx.strokeText(textLine.txt, textLine.pos.x, textLine.pos.y);
 }
