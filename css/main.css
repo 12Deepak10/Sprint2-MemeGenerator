@@ -136,6 +136,14 @@ a, a:link, a:hover, a:visited, a:active {
     background-color: green;
 }
 
+.text-line-input {
+    border-radius: 12px;
+    height: 50px;
+    width: 400px;
+    font-size: x-large;
+    border: none;
+}
+
 /* footer */
 
 .main-footer {
