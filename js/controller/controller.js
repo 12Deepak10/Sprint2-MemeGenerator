@@ -14,6 +14,12 @@ function onTextAlignChange(textAlign) {
     renderCanvas();
 }
 
+function onDownloadMeme(elDownloadLink) {
+    const data = gElCanvas.toDataURL();
+    elDownloadLink.href = data;
+    elDownloadLink.download = 'meme.png';
+}
+
 function onAddLine() {
     addLine();
     renderCanvas();

@@ -51,7 +51,8 @@
                     <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
                     <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button>
                     <button class="add-line-btn" onclick="onAddLine()">add line</button>
-                    <button class="remove-selected-line-btn" onclick="onRemoveSelectedLine()">remove selected line</button>
+                    <button class="remove-selected-line-btn" onclick="onRemoveSelectedLine()">remove selected
+                        line</button>
                 </div>
                 <!-- text actions -->
                 <div class="text-actions-btns-container">
@@ -70,8 +71,10 @@
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
                         </select>
-                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)">text font color</input>
-                        <input type="color" class="text-stroke-color-input" onchange="onStrokeColorChange(this.value)">text stroke color</input>
+                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)">text
+                        font color</input>
+                        <input type="color" class="text-stroke-color-input"
+                            onchange="onStrokeColorChange(this.value)">text stroke color</input>
                     </div>
                 </div>
 
@@ -79,7 +82,8 @@
                 <div class="stickers-container">stickers</div>
 
                 <!-- socials -->
-                <div class="socials-btns">
+                <div class="export-container">
+                    <a href="#" download="" onclick="onDownloadMeme(this)">Download</a>
                     <button class="share-btn">Share</button>
                 </div>
             </section>
