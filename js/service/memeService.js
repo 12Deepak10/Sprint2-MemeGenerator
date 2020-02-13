@@ -5,47 +5,7 @@ let gImages = [];
 let gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'first text',
-            font: null,
-            size: 50,
-            align: null,
-            fontColor: null,
-            strokeColor: null,
-            pos: {
-                x: null,
-                y: null
-            },
-            baseLine: null
-        },
-        {
-            txt: 'second text',
-            font: null,
-            size: 40,
-            align: null,
-            fontColor: null,
-            strokeColor: null,
-            pos: {
-                x: null,
-                y: null
-            },
-            baseLine: null
-        },
-        {
-            txt: 'third text',
-            font: null,
-            size: 90,
-            align: null,
-            fontColor: null,
-            strokeColor: null,
-            pos: {
-                x: null,
-                y: null
-            },
-            baseLine: null
-        }
-    ]
+    lines: _createInitialLines()
 }
 
 function setNextLineAsSelected() {
@@ -110,4 +70,33 @@ function setSelectedImgId(imgId) {
 
 function _getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx];
+}
+
+function _createInitialLines() {
+    let lines = [];
+
+    for (let i = 0; i < 2; i++) {
+        lines.push(_createLine(`Line number ${i + 1}`));
+    }
+
+    return lines;
+}
+
+function _createLine(lineTxt) {
+    let line = {
+        id: Math.random() * 1000,
+        txt: 'first text',
+        font: null,
+        size: null,
+        fontColor: null,
+        strokeColor: null,
+        align: null,
+        pos: {
+            x: null,
+            y: null
+        },
+        baseLine: null
+    }
+
+    return line;
 }

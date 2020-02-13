@@ -92,8 +92,11 @@ function drawTextLines() {
 
 function drawTextLine(textLine, textLineIndex) {
     let defaultFontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    let defaultFontSize = 50;
     let font = textLine.font ? textLine.font : defaultFontFamily;
-    gCtx.font = `${textLine.size}px ${font}`;
+    let fontSize = textLine.size ? textLine.size : defaultFontSize;
+    
+    gCtx.font = `${fontSize}px ${font}`;
     gCtx.textAlign = textLine.align ? textLine.align : 'center';
     gCtx.fillStyle = textLine.fontColor ? textLine.fontColor : 'white';
     gCtx.strokeStyle = textLine.strokeColor ? textLine.strokeColor : 'black';
