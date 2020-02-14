@@ -126,7 +126,7 @@ a, a:link, a:hover, a:visited, a:active {
 /* Editor */
 
 .editor-container {
-    background-color: cyan;
+    background-color: #e3e3e3;
     display: none;
     padding-top: 50px;
     padding-bottom: 50px;
