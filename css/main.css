@@ -70,11 +70,6 @@ a, a:link, a:hover, a:visited, a:active {
     height: 65px;
     color: white;
     font-size: 20px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
 }
 
@@ -115,7 +110,7 @@ a, a:link, a:hover, a:visited, a:active {
 
 .gallery-image {
     border-radius: 50%;
-    transition: border-radius .1s;
+    transition: border-radius .2s;
 }
 
 .gallery-image:hover {
