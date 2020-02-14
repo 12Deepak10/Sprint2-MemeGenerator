@@ -39,37 +39,47 @@
             <canvas id="canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
             <!-- meme settings -->
             <section class="flex flex-column align-items-center justify-content-center settings-container">
-                <input class="text-line-input" type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
+                <input class="text-line-input" type="text" id="text-line-input"
+                    onkeyup="onTextLineInputChange(this.value)"></input>
                 <!-- line positioning -->
                 <div class="row-position-btns-container">
-                    <button class="change-line" onclick="onChangeLine()">Change line</button>
-                    <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
-                    <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button>
-                    <button class="add-line-btn" onclick="onAddLine()">add line</button>
-                    <button class="remove-selected-line-btn" onclick="onRemoveSelectedLine()">remove selected
-                        line</button>
+                    <!-- <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
+                    <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button> -->
+                    <img class="editor-icon change-line" src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+                        onclick="onChangeLine()">
+                    <img class="editor-icon add-line-btn" src="icons/add.png" onclick="onAddLine()">
+                    <img class="editor-icon remove-selected-line-btn" src="icons/trash.png"
+                        onclick="onRemoveSelectedLine()">
                 </div>
                 <!-- text actions -->
                 <div class="text-actions-btns-container">
                     <!-- text align -->
                     <div class="text-size-align-btns-container">
-                        <button class="increase-font-btn" onclick="onFontSizeChange(1)">Increase font</button>
-                        <button class="decrease-font-btn" onclick="onFontSizeChange(-1)">Decrease font</button>
-                        <button class="text-align-left-btn" onclick="onTextAlignChange('left')">left</button>
-                        <button class="text-align-center-btn" onclick="onTextAlignChange('center')">center</button>
-                        <button class="text-align-right-btn" onclick="onTextAlignChange('right')">right</button>
+                        <img class="editor-icon increase-font-btn" src="icons/increase font - icon.png"
+                            onclick="onFontSizeChange(1)">
+                        <img class="editor-icon decrease-font-btn" src="icons/decrease font - icon.png"
+                            onclick="onFontSizeChange(-1)">
+                        <img class="editor-icon text-align-left-btn" src="icons/align-to-left.png"
+                            onclick="onTextAlignChange('left')">
+                        <img class="editor-icon text-align-center-btn" src="icons/center-text-alignment.png"
+                            onclick="onTextAlignChange('center')">
+                        <img class="editor-icon text-align-right-btn" src="icons/align-to-right.png"
+                            onclick="onTextAlignChange('right')">
                     </div>
 
                     <!-- text font decorations -->
                     <div class="text-font-decorations-container">
-                        <select name="text-font-select" id="text-font-select" onchange="onFontFamilyChange(this.value)">
+                        
+                        <select class="text-font-select" name="text-font-select" id="text-font-select" onchange="onFontFamilyChange(this.value)">
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
                         </select>
-                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)">text
-                        font color</input>
-                        <input type="color" class="text-stroke-color-input"
-                            onchange="onStrokeColorChange(this.value)">text stroke color</input>
+                        
+                        <img class="editor-icon text-stroke-color-btn" src="icons/text-stroke.png">
+                        <input type="color" class="text-stroke-color-input" onchange="onStrokeColorChange(this.value)" hidden></input>
+                        
+                        <img class="editor-icon text-font-color-btn" src="icons/paint-board-and-brush.png">
+                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)" hidden></input>
                     </div>
                 </div>
 
@@ -78,21 +88,23 @@
 
                 <!-- socials -->
                 <div class="export-container">
-                    <a href="#" download="" onclick="onDownloadMeme(this)">Download</a>
+                    <a class="download-btn" href="#" download="" onclick="onDownloadMeme(this)">Download</a>
                     <button class="share-btn">Share</button>
                 </div>
             </section>
         </section>
         <!-- Editor end-->
-        
+
         <section class="flex align-items-center justify-content-center container about-container">
             <img class="creator-img" src="images/creator-img.jpg">
             <section class="flex flex-column align-items-start justify-content-center creator-details-container">
                 <div class="creator-name">Emanuel Ben Hamo</div>
                 <div class="creator-info">Full stack developer</div>
                 <section class="flex creator-socials">
-                    <a href="https://www.linkedin.com/in/emanuelbenhamo/" target="_blank"><i class="social-icon fab fa-linkedin"></i></a>
-                    <a href="https://github.com/EmanuelBenHamo/" target="_blank"><i class="social-icon fab fa-github-square"></i></a>
+                    <a href="https://www.linkedin.com/in/emanuelbenhamo/" target="_blank"><i
+                            class="social-icon fab fa-linkedin"></i></a>
+                    <a href="https://github.com/EmanuelBenHamo/" target="_blank"><i
+                            class="social-icon fab fa-github-square"></i></a>
                 </section>
             </section>
         </section>
