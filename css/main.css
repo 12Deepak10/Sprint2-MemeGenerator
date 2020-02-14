@@ -226,11 +226,8 @@ a, a:link, a:hover, a:visited, a:active {
 
 /* footer */
 
-.main-footer {
-    background-color: #ff7f00;
-}
-
 .copyrights-container {
+    background-color: #ff7f00;
     height: 200px;
 }
 
