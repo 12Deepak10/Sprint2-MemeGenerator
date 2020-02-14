@@ -26,8 +26,8 @@ function updateCanvasHeight(canvasHeight) {
 
 function initGmeme() {
     gMeme = {
-        selectedImgId: 2,
-        selectedLineIdx: 0,
+        selectedImg: null,
+        selectedLineIdx: null,
         lines: _createInitialLines()
     }
 }
@@ -103,7 +103,7 @@ function getImages() {
 function loadImages() {
     let numOfImages = 18;
     for (let i = 1; i <= numOfImages; i++) {
-        let currImg = { url: `images/square/${i}.jpg`, id: i };
+        let currImg = { url: `images/square/${i}.jpg`, id: `${i}` };
         gImages.push(currImg);
     }
 }
@@ -114,15 +114,16 @@ function setSelectedLineTxt(txt) {
 }
 
 function getBgImg() {
-    return gImages[gMeme.selectedImgId - 1];
+    return gMeme.selectedImg;
 }
 
 function getAllTxtLines() {
     return gMeme.lines;
 }
 
-function setSelectedImgId(imgId) {
-    gMeme.selectedImgId = imgId;
+function setSelectedImgById(imgId) {
+    let bgImg = gImages.find(img => img.id === imgId);
+    gMeme.selectedImg = bgImg;
 }
 
 function _getSelectedLine() {

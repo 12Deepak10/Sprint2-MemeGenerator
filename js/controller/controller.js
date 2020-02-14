@@ -6,6 +6,7 @@ let gBgImg;
 
 function init() {
     loadImages();
+    gBgImg = new Image();
     renderImgGallery();
 }
 
@@ -73,9 +74,7 @@ function onStrokeColorChange(strokeColor) {
 
 function onGalleryImageClick(elImg) {
     hideGallery();
-    showEditor();
-    setSelectedImgId(elImg.dataset.imgid);
-    renderCanvas();
+    showEditor(elImg.dataset.imgid);
     let elGalleryNavBtn = document.querySelector('.gallery-link');
     elGalleryNavBtn.classList.remove('active');
 }
@@ -90,7 +89,7 @@ function hideGallery() {
     elGallery.style.display = 'none';
 }
 
-function showEditor() {
+function showEditor(bgImgId) {
     let elGallery = document.querySelector('.editor-container');
     elGallery.style.display = 'flex';
     gElCanvas = document.getElementById('canvas');
@@ -98,7 +97,7 @@ function showEditor() {
     updateCanvasWidth(gElCanvas.width);
     updateCanvasHeight(gElCanvas.height);
     initGmeme();
-    gBgImg = new Image();
+    setSelectedImgById(bgImgId);
     renderCanvas();
 }
 
