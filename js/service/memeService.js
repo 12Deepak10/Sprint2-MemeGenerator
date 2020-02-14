@@ -38,6 +38,10 @@ function addLine() {
 
 function removeSelectedLine() {
     let lineToRemove = _getSelectedLine();
+    if (!lineToRemove) {
+        return;
+    }
+
     let lineToRemoveIdx = gMeme.lines.findIndex(line => line.id === lineToRemove.id);
     gMeme.lines.splice(lineToRemoveIdx, 1);
     gMeme.selectedLineIdx = lineToRemoveIdx + 1 > gMeme.lines.length - 1 ? gMeme.lines.length - 1 : lineToRemoveIdx + 1;
@@ -48,6 +52,11 @@ function removeSelectedLine() {
 
 function alignSelectedLine(textAlign) {
     let selectedLine = _getSelectedLine();
+    
+    if (!selectedLine) {
+        return;
+    }
+
     selectedLine.align = textAlign;
 
     switch (textAlign) {
