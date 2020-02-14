@@ -64,7 +64,12 @@ function alignSelectedLine(textAlign) {
 }
 
 function setNextLineAsSelected() {
-    gMeme.selectedLineIdx++;
+    if (!gMeme.selectedLineIdx) {
+        gMeme.selectedLineIdx = 0;
+    }
+    else {
+        gMeme.selectedLineIdx++;
+    }
 
     if (gMeme.selectedLineIdx > gMeme.lines.length - 1) {
         gMeme.selectedLineIdx = 0;
@@ -73,27 +78,37 @@ function setNextLineAsSelected() {
 
 function setSelectedLineYPos(yPosDiff) {
     let selectedLine = _getSelectedLine();
-    selectedLine.pos.y += yPosDiff;
+    if (selectedLine) {
+        selectedLine.pos.y += yPosDiff;
+    }
 }
 
 function setSelectedLineFontFamily(fontFamily) {
     let selectedLine = _getSelectedLine();
-    selectedLine.font = fontFamily;
+    if (selectedLine) {
+        selectedLine.font = fontFamily;
+    }
 }
 
 function setSelectedLineFontSize(fontSizeDiff) {
     let selectedLine = _getSelectedLine();
-    selectedLine.fontSize += fontSizeDiff;
+    if (selectedLine) {
+        selectedLine.fontSize += fontSizeDiff;
+    }
 }
 
 function setSelectedLineFontColor(fontColor) {
     let selectedLine = _getSelectedLine();
-    selectedLine.fontColor = fontColor;
+    if (selectedLine) {
+        selectedLine.fontColor = fontColor;
+    }
 }
 
 function setSelectedLineStrokeColor(strokeColor) {
     let selectedLine = _getSelectedLine();
-    selectedLine.strokeColor = strokeColor;
+    if (selectedLine) {
+        selectedLine.strokeColor = strokeColor;
+    }
 }
 
 function getImages() {
@@ -110,7 +125,9 @@ function loadImages() {
 
 function setSelectedLineTxt(txt) {
     let selectedLine = _getSelectedLine();
-    selectedLine.txt = txt;
+    if (selectedLine) {
+        selectedLine.txt = txt;
+    }
 }
 
 function getBgImg() {
