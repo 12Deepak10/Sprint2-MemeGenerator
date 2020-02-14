@@ -167,8 +167,13 @@ a, a:link, a:hover, a:visited, a:active {
     margin-block-end: 30px;
 }
 
-.creator-socials div:not(:last-of-type) {
+.creator-socials a:not(:last-of-type) {
     margin-inline-end: 10px;
+}
+
+.social-icon {
+    color: #ff7f00;
+    font-size: 40px;
 }
 
 /* footer */
