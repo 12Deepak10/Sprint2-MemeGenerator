@@ -132,15 +132,10 @@ a, a:link, a:hover, a:visited, a:active {
     padding-bottom: 50px;
 }
 
-.settings-container {
-    background-color: green;
-    border: 2px solid black;
-}
-
 .text-line-input {
     border-radius: 12px;
     height: 50px;
-    width: 400px;
+    width: 340px;
     font-size: x-large;
     border: none;
     justify-self: flex-start;
@@ -174,6 +169,7 @@ a, a:link, a:hover, a:visited, a:active {
     font-family: Montserrat;
     font-size: 20px;
     margin-inline-end: 10px;
+    border: none;
 }
 
 .text-font-decorations-container {
@@ -260,6 +256,10 @@ a, a:link, a:hover, a:visited, a:active {
 
 .flex-grow-3 {
     flex-grow: 3;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .align-items-start {
