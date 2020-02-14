@@ -171,6 +171,10 @@ a, a:link, a:hover, a:visited, a:active {
     align-items: center;
 }
 
+.align-items-start {
+    align-items: flex-start;
+}
+
 .justify-content-between {
     justify-content: space-between;
 }

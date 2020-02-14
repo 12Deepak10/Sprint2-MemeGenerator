@@ -38,7 +38,8 @@
             <canvas id="canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
             <!-- meme settings -->
             <section class="flex flex-column align-items-center justify-content-center settings-container">
-                <input class="text-line-input" type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
+                <input class="text-line-input" type="text" id="text-line-input"
+                    onkeyup="onTextLineInputChange(this.value)"></input>
                 <!-- line positioning -->
                 <div class="row-position-btns-container">
                     <button class="change-line" onclick="onChangeLine()">Change line</button>
@@ -87,9 +88,22 @@
     </main>
 
     <!-- footer -->
-    <footer id="about" class="flex flex-column align-items-center justify-content-center main-footer">
-        <img src="icons/logo/logo-small.png" class="flex justify-content-center logo" />
-        <div class="copyright">all rights reserved 2019</div>
+    <footer id="about" class="flex flex-column align-items-center justify-content-center container main-footer">
+        <section class="flex align-items-center justify-content-center about-container">
+            <img class="creator-img" src="" alt="">
+            <section class="flex flex-column align-items-start justify-content-center creator-details-container">
+                <div class="creator-name"></div>
+                <div class="creator-info"></div>
+                <section class="creator-socials">
+                    <div class="creator-linkedin-btn"></div>
+                    <div class="creator-github-btn"></div>
+                </section>
+            </section>
+        </section>
+        <section class="copyrights-container">
+            <img src="icons/logo/logo-small.png" class="flex justify-content-center logo" />
+            <div class="copyright">all rights reserved 2019</div>
+        </section>
     </footer>
 
     <script src="js/service/memeService.js"></script>
