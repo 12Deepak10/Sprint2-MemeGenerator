@@ -255,6 +255,10 @@ a, a:link, a:hover, a:visited, a:active {
     align-items: flex-start;
 }
 
+.justify-content-around {
+    justify-content: space-around;
+}
+
 .justify-content-between {
     justify-content: space-between;
 }
