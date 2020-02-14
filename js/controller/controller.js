@@ -23,8 +23,9 @@ function onDownloadMeme(elDownloadLink) {
 
 function onGalleryNavBtnClick(elGalleryBtn) {
     onNavBtnClick(elGalleryBtn);
-    hideEditor();
-    showGallery();
+    hideElByClass('editor-container');
+    displayElByClassAndType('gallery-container', 'flex');
+    displayElByClassAndType('about-container', 'flex');
 }
 
 function onNavBtnClick(elNavBtn) {
@@ -73,25 +74,25 @@ function onStrokeColorChange(strokeColor) {
 }
 
 function onGalleryImageClick(elImg) {
-    hideGallery();
+    hideElByClass('gallery-container');
+    hideElByClass('about-container');
     showEditor(elImg.dataset.imgid);
     let elGalleryNavBtn = document.querySelector('.gallery-link');
     elGalleryNavBtn.classList.remove('active');
 }
 
-function showGallery() {
-    let elGallery = document.querySelector('.gallery-container');
-    elGallery.style.display = 'flex';
+function displayElByClassAndType(elClass, displayType) {
+    let el = document.querySelector(`.${elClass}`);
+    el.style.display = displayType;
 }
 
-function hideGallery() {
-    let elGallery = document.querySelector('.gallery-container');
-    elGallery.style.display = 'none';
+function hideElByClass(elClass) {
+    let el = document.querySelector(`.${elClass}`);
+    el.style.display = 'none';
 }
 
 function showEditor(bgImgId) {
-    let elGallery = document.querySelector('.editor-container');
-    elGallery.style.display = 'flex';
+    displayElByClassAndType('editor-container', 'flex');
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
     updateCanvasWidth(gElCanvas.width);
