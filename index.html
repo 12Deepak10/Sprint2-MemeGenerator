@@ -39,14 +39,17 @@
             <canvas id="canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
             <!-- meme settings -->
             <section class="flex flex-column align-items-center justify-content-start settings-container">
-                <input class="text-line-input" type="text" id="text-line-input" onkeyup="onTextLineInputChange(this.value)"></input>
+                <input class="text-line-input" type="text" id="text-line-input"
+                    onkeyup="onTextLineInputChange(this.value)"></input>
                 <!-- line positioning -->
                 <div class="flex row-position-btns-container">
                     <!-- <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
                     <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button> -->
-                    <img class="editor-icon change-line-btn" src="icons/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()">
+                    <img class="editor-icon change-line-btn"
+                        src="icons/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()">
                     <img class="editor-icon add-line-btn" src="icons/add.png" onclick="onAddLine()">
-                    <img class="editor-icon remove-selected-line-btn" src="icons/trash.png" onclick="onRemoveSelectedLine()">
+                    <img class="editor-icon remove-selected-line-btn" src="icons/trash.png"
+                        onclick="onRemoveSelectedLine()">
                 </div>
                 <!-- text actions -->
                 <div class="flex flex-column text-actions-btns-container">
@@ -66,24 +69,28 @@
 
                     <!-- text font decorations -->
                     <div class="flex text-font-decorations-container">
-                        <select class="text-font-select" name="text-font-select" id="text-font-select" onchange="onFontFamilyChange(this.value)">
+                        <select class="text-font-select" name="text-font-select" id="text-font-select"
+                            onchange="onFontFamilyChange(this.value)">
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
                         </select>
-                        
+
                         <img class="editor-icon text-stroke-color-btn" src="icons/text-stroke.png">
-                        <input type="color" class="text-stroke-color-input" onchange="onStrokeColorChange(this.value)" hidden></input>
-                        
+                        <input type="color" class="text-stroke-color-input" onchange="onStrokeColorChange(this.value)"
+                            hidden></input>
+
                         <img class="editor-icon text-font-color-btn" src="icons/paint-board-and-brush.png">
-                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)" hidden></input>
+                        <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)"
+                            hidden></input>
                     </div>
                 </div>
 
                 <!-- stickers -->
-                <div class="stickers-container">stickers</div>
+                <div class="flex flex-grow-3 align-items-center justify-content-center stickers-container">stickers</div>
+
 
                 <!-- socials -->
-                <div class="flex export-container">
+                <div class="flex flex-grow-1 align-items-end justify-content-end export-container">
                     <a class="download-btn" href="#" download="" onclick="onDownloadMeme(this)">Download</a>
                     <button class="share-btn">Share</button>
                 </div>
