@@ -16,7 +16,6 @@
 
 @font-face {
     font-family: 'Montserrat-Medium';
-    
     src: url('../fonts/Montserrat-Medium.ttf');
 }
 
@@ -175,6 +174,10 @@ a, a:link, a:hover, a:visited, a:active {
 .social-icon {
     color: #ff7f00;
     font-size: 40px;
+}
+
+.social-icon:hover {
+    color: orange;
 }
 
 /* footer */
