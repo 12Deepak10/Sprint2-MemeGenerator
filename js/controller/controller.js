@@ -129,7 +129,7 @@ function drawTextLine(txtLine, selectedLine) {
 
 function drawBgRect(txtLine) {
     gCtx.beginPath();
-    gCtx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    gCtx.fillStyle = 'rgba(104, 7, 249, 0.5)';
     let bgRectHeight = txtLine.fontSize;
     let posY = calcBgRectPosY(txtLine, bgRectHeight);
     gCtx.fillRect(0, posY, gElCanvas.width, bgRectHeight);
