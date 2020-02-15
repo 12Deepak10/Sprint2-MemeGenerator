@@ -294,6 +294,7 @@ button {
 
 .copyright {
     text-transform: lowercase;
+    color: white;
 }
 
 /* helpers */
@@ -388,6 +389,7 @@ button {
 /* Mobile design */
 
 @media screen and (max-width: 740px) {
+    /* Gallery */
     .gallery-search-input {
         margin: 0 auto;
     }
@@ -398,6 +400,49 @@ button {
         height: 150px;
         width: 150px;
     }
+    /* Editor */
+    .canvas {
+        margin-block-end: 10px;
+    }
+    .editor-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .text-line-input {
+        height: 40px;
+        width: 280px;
+        font-size: medium;
+    }
+    .row-position-btns-container {
+        margin-block-end: 10px;
+    }
+    .row-position-btns-container .editor-icon:not(:last-of-type) {
+        margin-inline-end: 20px;
+    }
+    .text-size-align-btns-container .editor-icon:not(:last-of-type) {
+        margin-inline-end: 20px;
+    }
+    .text-font-decorations-container .editor-icon:not(:last-of-type) {
+        margin-inline-end: 20px;
+    }
+    .text-font-select {
+        height: 40px;
+        width: 160px;
+        font-size: 16px;
+        margin-inline-end: 20px;
+    }
+    .stickers-container {
+        width: 280px;
+        height: 55px;
+    }
+    .export-container {
+        justify-content: center;
+    }
+    .export-btn {
+        height: 40px;
+        font-size: 16px;
+    }
+    /* About */
     .about-container {
         flex-direction: column;
     }
@@ -406,6 +451,8 @@ button {
     }
     .creator-img {
         margin-inline-end: unset;
+        width: 125px;
+        height: 125px;
         margin-block-end: 20px;
     }
     .creator-name {
