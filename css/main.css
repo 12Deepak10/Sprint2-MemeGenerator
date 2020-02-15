@@ -101,6 +101,10 @@ input, select {
     height: 100px;
 }
 
+.gallery-search-input-container {
+    margin-inline-end: 200px;
+}
+
 .gallery-search-input {
     width: 250px;
     border-style: none none solid none;
