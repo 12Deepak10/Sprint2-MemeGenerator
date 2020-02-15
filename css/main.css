@@ -392,14 +392,18 @@ button {
 @media screen and (max-width: 740px) {
     /* Gallery */
     .gallery-search-input {
+        width: 200px;
         margin: 0 auto;
+        font-size: 16px;
+        background-size: 16px;
+        padding-inline-end: 20px;
     }
     .images-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
     .gallery-image {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
     }
     /* Editor */
     .canvas {
@@ -457,6 +461,10 @@ button {
         margin-block-end: 20px;
     }
     .creator-name {
+        font-size: 16px;
         margin-block-end: 10px;
+    }
+    .creator-info {
+        font-size: 16px;
     }
 }
