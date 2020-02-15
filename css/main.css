@@ -156,7 +156,6 @@ input, select {
     width: 340px;
     font-size: x-large;
     border: none;
-    justify-self: flex-start;
     margin-block-end: 20px;
 }
 
