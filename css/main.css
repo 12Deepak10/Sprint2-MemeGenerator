@@ -97,6 +97,20 @@ a, a:link, a:hover, a:visited, a:active {
     height: 100px;
 }
 
+.gallery-search {
+    width: 250px;
+    border-style: none none solid none;
+    font-family: Montserrat-Medium;
+    position: relative;
+    font-size: 20px;
+    text-align: start;
+    color: #7a7a7a;
+}
+
+.gallery-search:focus {
+    outline: none;
+}
+
 .images-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     row-gap: 10px;
