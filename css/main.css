@@ -243,6 +243,7 @@ input, select {
     font-size: 20px;
     color: black;
     margin-block-end: 30px;
+    text-transform: lowercase;
 }
 
 .creator-socials a:not(:last-of-type) {
@@ -264,6 +265,10 @@ input, select {
 .copyrights-container {
     background-color: #ff7f00;
     height: 200px;
+}
+
+.copyright {
+    text-transform: lowercase;
 }
 
 /* helpers */
