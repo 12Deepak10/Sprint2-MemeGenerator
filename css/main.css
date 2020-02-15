@@ -384,3 +384,31 @@ button {
     cursor: pointer;
     background-color: orange;
 }
+
+/* Mobile design */
+
+@media screen and (max-width: 740px) {
+    .gallery-search-input {
+        margin: 0 auto;
+    }
+    .images-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .gallery-image {
+        height: 150px;
+        width: 150px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .creator-details-container {
+        align-items: center;
+    }
+    .creator-img {
+        margin-inline-end: unset;
+        margin-block-end: 20px;
+    }
+    .creator-name {
+        margin-block-end: 10px;
+    }
+}
