@@ -179,6 +179,7 @@ button {
     font-size: x-large;
     border: none;
     margin-block-end: 20px;
+    text-align: center;
 }
 
 .row-position-btns-container {
