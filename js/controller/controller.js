@@ -5,6 +5,7 @@ let gCtx;
 let gBgImg;
 
 function init() {
+    createLineDefaults();
     loadImages();
     gBgImg = new Image();
     renderImgGallery();
@@ -92,14 +93,24 @@ function hideElByClass(elClass) {
 }
 
 function showEditor(bgImgId) {
-    displayElByClassAndType('editor-container', 'flex');
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d');
+    setCanvasSizeByScreenSize(gElCanvas);
     updateCanvasWidth(gElCanvas.width);
     updateCanvasHeight(gElCanvas.height);
     initGmeme();
     setSelectedImgById(bgImgId);
+    displayElByClassAndType('editor-container', 'flex');
     renderCanvas();
+}
+
+function setCanvasSizeByScreenSize(elCanvas) {
+    let screenWidth = window.screen.width;
+
+    if (screenWidth <= 740) {
+        elCanvas.width = 280;
+        elCanvas.height = 280;
+    }
 }
 
 function hideEditor() {

@@ -2,19 +2,23 @@
 
 let gImages = [];
 
-let gLineDefaults = {
-    txt: 'Write your text here',
-    font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-    fontSize: 50,
-    fontColor: 'white',
-    strokeColor: 'black',
-    align: 'center',
-    numOfInitLines: 2
-}
+let gLineDefaults;
 
 let gCanvasHeight;
 let gCanvasWidth;
 let gMeme = {};
+
+function createLineDefaults() {
+    gLineDefaults = {
+        txt: 'Write your text here',
+        font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+        fontSize: window.screen.width > 740 ? 50 : 25,
+        fontColor: 'white',
+        strokeColor: 'black',
+        align: 'center',
+        numOfInitLines: 2
+    }
+}
 
 function updateCanvasWidth(canvasWidth) {
     gCanvasWidth = canvasWidth;
@@ -52,7 +56,7 @@ function removeSelectedLine() {
 
 function alignSelectedLine(textAlign) {
     let selectedLine = _getSelectedLine();
-    
+
     if (!selectedLine) {
         return;
     }
