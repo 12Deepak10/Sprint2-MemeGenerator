@@ -178,13 +178,22 @@ function onFontSizeChange(fontDiff) {
     renderCanvas();
 }
 
-function onFontColorChange(fontColor) {
-    setSelectedLineFontColor(fontColor);
-    renderCanvas();
+function onStrokeColorClick() {
+    let elStrokeColorInput = document.querySelector('.text-stroke-color-input');
+    elStrokeColorInput.click();
 }
 
 function onStrokeColorChange(strokeColor) {
     setSelectedLineStrokeColor(strokeColor);
+    renderCanvas();
+}
+function onFontColorClick() {
+    let elFontColorInput = document.querySelector('.text-font-color-input');
+    elFontColorInput.click();
+}
+
+function onFontColorChange(fontColor) {
+    setSelectedLineFontColor(fontColor);
     renderCanvas();
 }
 
