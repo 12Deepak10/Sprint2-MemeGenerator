@@ -96,17 +96,43 @@ function setCanvasSizeByScreenSize(elCanvas) {
 
 function drawTextLines() {
     let txtLines = getAllTxtLines();
-    txtLines.forEach((txtLine) => drawTextLine(txtLine));
+    let selectedLine = getSelectedLine();
+    txtLines.forEach((txtLine) => drawTextLine(txtLine, selectedLine));
 }
 
-function drawTextLine(textLine) {
-    gCtx.font = `${textLine.fontSize}px ${textLine.font}`;
-    gCtx.textAlign = textLine.align;
-    gCtx.fillStyle = textLine.fontColor;
-    gCtx.strokeStyle = textLine.strokeColor;
-    gCtx.textBaseline = textLine.baseLine;
-    gCtx.fillText(textLine.txt, textLine.pos.x, textLine.pos.y);
-    gCtx.strokeText(textLine.txt, textLine.pos.x, textLine.pos.y);
+function drawTextLine(txtLine, selectedLine) {
+    if (txtLine === selectedLine) {
+        drawBgRect(txtLine);
+    }
+    gCtx.font = `${txtLine.fontSize}px ${txtLine.font}`;
+    gCtx.textAlign = txtLine.align;
+    gCtx.fillStyle = txtLine.fontColor;
+    gCtx.strokeStyle = txtLine.strokeColor;
+    gCtx.textBaseline = txtLine.baseLine;
+    gCtx.fillText(txtLine.txt, txtLine.pos.x, txtLine.pos.y);
+    gCtx.strokeText(txtLine.txt, txtLine.pos.x, txtLine.pos.y);
+}
+
+function drawBgRect(txtLine) {
+    gCtx.beginPath();
+    gCtx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    let bgRectHeight = 50;
+    let posY = calcBgRectPosY(txtLine, bgRectHeight);
+    gCtx.fillRect(0, posY, gElCanvas.width, bgRectHeight);
+}
+
+function calcBgRectPosY(txtLine, bgRectHeight) {
+    let posY;
+
+    if (txtLine.baseLine === 'top') {
+        posY = 0;
+    } else if (txtLine.baseLine === 'bottom') {
+        posY = txtLine.pos.y - bgRectHeight;
+    } else { // baseline === 'middle'
+        posY = txtLine.pos.y - (bgRectHeight / 2);
+    }
+
+    return posY;
 }
 
 function onAddLine() {
@@ -121,6 +147,7 @@ function onRemoveSelectedLine() {
 
 function onChangeLine() {
     setNextLineAsSelected();
+    renderCanvas();
 }
 
 function onTextLineInputChange(txt) {

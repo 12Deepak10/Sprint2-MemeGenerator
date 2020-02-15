@@ -40,7 +40,7 @@ function addLine() {
 }
 
 function removeSelectedLine() {
-    let lineToRemove = _getSelectedLine();
+    let lineToRemove = getSelectedLine();
     if (!lineToRemove) {
         return;
     }
@@ -54,7 +54,7 @@ function removeSelectedLine() {
 }
 
 function alignSelectedLine(textAlign) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
 
     if (!selectedLine) {
         return;
@@ -76,7 +76,7 @@ function alignSelectedLine(textAlign) {
 }
 
 function setNextLineAsSelected() {
-    if (!gMeme.selectedLineIdx) {
+    if (gMeme.selectedLineIdx === null) {
         gMeme.selectedLineIdx = 0;
     }
     else {
@@ -89,42 +89,42 @@ function setNextLineAsSelected() {
 }
 
 function setSelectedLineYPos(yPosDiff) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.pos.y += yPosDiff;
     }
 }
 
 function setSelectedLineFontFamily(fontFamily) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.font = fontFamily;
     }
 }
 
 function setSelectedLineFontSize(fontSizeDiff) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.fontSize += fontSizeDiff;
     }
 }
 
 function setSelectedLineFontColor(fontColor) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.fontColor = fontColor;
     }
 }
 
 function setSelectedLineStrokeColor(strokeColor) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.strokeColor = strokeColor;
     }
 }
 
 function setSelectedLineTxt(txt) {
-    let selectedLine = _getSelectedLine();
+    let selectedLine = getSelectedLine();
     if (selectedLine) {
         selectedLine.txt = txt;
     }
@@ -143,7 +143,7 @@ function setSelectedImgById(imgId) {
     gMeme.selectedImg = bgImg;
 }
 
-function _getSelectedLine() {
+function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx];
 }
 
