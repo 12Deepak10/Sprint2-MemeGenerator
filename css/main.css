@@ -216,6 +216,46 @@ button {
     margin-block-end: 20px;
 }
 
+.change-line-btn {
+    background: url('../icons/up-and-down-opposite-double-arrows-side-by-side.png') no-repeat;
+}
+
+.remove-selected-line-btn {
+    background: url('../icons/trash.png') no-repeat;
+}
+
+.add-line-btn {
+    background: url('../icons/add.png') no-repeat;
+}
+
+.increase-font-btn {
+    background: url('../icons/increase-font-icon.png') no-repeat;
+}
+
+.decrease-font-btn {
+    background: url('../icons/decrease-font-icon.png') no-repeat;
+}
+
+.text-align-left-btn {
+    background: url('../icons/align-to-left.png') no-repeat;
+}
+
+.text-align-center-btn {
+    background: url('../icons/center-text-alignment.png') no-repeat;
+}
+
+.text-align-right-btn {
+    background: url('../icons/align-to-right.png') no-repeat;
+}
+
+.text-stroke-color-btn {
+    background: url('../icons/text-stroke.png') no-repeat;
+}
+
+.text-font-color-btn {
+    background: url('../icons/paint-board-and-brush.png') no-repeat;
+}
+
 .stickers-container {
     margin-block-end: 20px;
     background-color: white;
@@ -378,7 +418,9 @@ button {
     width: 60px;
     height: 60px;
     border-radius: 12px;
-    padding: 10px;
+    background-size: 30px;
+    background-position: center center;
+    color: black;
     background-color: white;
 }
 
@@ -416,6 +458,7 @@ button {
     .editor-icon {
         width: 40px;
         height: 40px;
+        background-size: 20px;
     }
     .text-line-input {
         height: 40px;

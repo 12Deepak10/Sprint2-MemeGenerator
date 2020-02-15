@@ -48,26 +48,22 @@
                 <div class="flex row-position-btns-container">
                     <!-- <button class="move-line-up-btn" onclick="onLineHeightChange(-1)">Move line up</button>
                     <button class="move-line-down-btn" onclick="onLineHeightChange(1)">Move line down</button> -->
-                    <img class="editor-icon change-line-btn"
-                        src="icons/up-and-down-opposite-double-arrows-side-by-side.png" onclick="onChangeLine()">
-                    <img class="editor-icon add-line-btn" src="icons/add.png" onclick="onAddLine()">
-                    <img class="editor-icon remove-selected-line-btn" src="icons/trash.png"
-                        onclick="onRemoveSelectedLine()">
+                    <button class="editor-icon change-line-btn" onclick="onChangeLine()"></button>
+                    <button class="editor-icon add-line-btn" onclick="onAddLine()"></button>
+                    <button class="editor-icon remove-selected-line-btn" onclick="onRemoveSelectedLine()"></button>
                 </div>
                 <!-- text actions -->
                 <div class="flex flex-column text-actions-btns-container">
                     <!-- text align -->
                     <div class="flex text-size-align-btns-container">
-                        <img class="editor-icon increase-font-btn" src="icons/increase font - icon.png"
-                            onclick="onFontSizeChange(1)">
-                        <img class="editor-icon decrease-font-btn" src="icons/decrease font - icon.png"
-                            onclick="onFontSizeChange(-1)">
-                        <img class="editor-icon text-align-left-btn" src="icons/align-to-left.png"
-                            onclick="onTextAlignChange('left')">
-                        <img class="editor-icon text-align-center-btn" src="icons/center-text-alignment.png"
-                            onclick="onTextAlignChange('center')">
-                        <img class="editor-icon text-align-right-btn" src="icons/align-to-right.png"
-                            onclick="onTextAlignChange('right')">
+                        <button class="editor-icon increase-font-btn" onclick="onFontSizeChange(1)">
+                            <button class="editor-icon decrease-font-btn" onclick="onFontSizeChange(-1)"></button>
+                            <button class="editor-icon text-align-left-btn"
+                                onclick="onTextAlignChange('left')"></button>
+                            <button class="editor-icon text-align-center-btn"
+                                onclick="onTextAlignChange('center')"></button>
+                            <button class="editor-icon text-align-right-btn"
+                                onclick="onTextAlignChange('right')"></button>
                     </div>
 
                     <!-- text font decorations -->
@@ -78,11 +74,11 @@
                             <option value="arial">Arial</option>
                         </select>
 
-                        <img class="editor-icon text-stroke-color-btn" src="icons/text-stroke.png">
+                        <button class="editor-icon text-stroke-color-btn"></button>
                         <input type="color" class="text-stroke-color-input" onchange="onStrokeColorChange(this.value)"
                             hidden>
 
-                        <img class="editor-icon text-font-color-btn" src="icons/paint-board-and-brush.png">
+                        <button class="editor-icon text-font-color-btn"></button>
                         <input type="color" class="text-font-color-input" onchange="onFontColorChange(this.value)"
                             hidden>
                     </div>
