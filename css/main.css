@@ -59,7 +59,7 @@ button {
 
 .main-header {
     height: 65px;
-    background-color: #ff7f00;
+    background-color: #9399ff;
 }
 
 .logo {
@@ -117,6 +117,7 @@ button {
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: center right;
+    background-color: inherit;
 }
 
 .search-icon {
@@ -148,7 +149,7 @@ button {
 }
 
 .images-gallery {
-    background-color: #e3e3e3;
+    background-color: #f0e3ff;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -166,13 +167,13 @@ button {
 /* Editor */
 
 .editor-container {
-    background-color: #e3e3e3;
+    background-color: #f0e3ff;
     display: none;
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
-.settings-container{
+.settings-container {
     max-height: 500px;
 }
 
@@ -276,7 +277,7 @@ button {
     width: 120px;
     height: 60px;
     border-radius: 12px;
-    background-color: #ff7f00;
+    background-color: #9399ff;
     text-align: center;
     color: white;
     font-size: 20px;
@@ -322,7 +323,7 @@ button {
 }
 
 .social-icon {
-    color: #ff7f00;
+    color: #9399ff;
     font-size: 40px;
     border-radius: 12px;
 }
@@ -334,7 +335,7 @@ button {
 /* footer */
 
 .copyrights-container {
-    background-color: #ff7f00;
+    background-color: #9399ff;
     height: 200px;
 }
 
