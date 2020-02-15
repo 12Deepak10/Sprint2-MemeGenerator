@@ -102,7 +102,7 @@ input, select {
 }
 
 .gallery-search-input-container {
-    margin-inline-end: 200px;
+    margin-inline-end: 100px;
 }
 
 .gallery-search-input {
@@ -112,6 +112,10 @@ input, select {
     font-size: 20px;
     text-align: start;
     color: #7a7a7a;
+}
+
+.gallery-keywords {
+    margin: 0 auto;
 }
 
 .search-icon {
