@@ -72,7 +72,6 @@ function getImgHtml(image) {
     return imgHTML;
 }
 
-
 // ---------- Editor ----------
 
 function hideEditor() {
@@ -148,6 +147,35 @@ function calcBgRectPosY(txtLine, bgRectHeight) {
     }
 
     return posY;
+}
+
+function onCanvasClick(ev) {
+    let { offsetX, offsetY } = ev;
+    let txtLines = getAllTxtLines();
+    let selectedLine = txtLines.find(txtLine => isTxtLineInRange(txtLine, offsetX, offsetY));
+    if (selectedLine) {
+        onTxtLineClick(selectedLine);
+    }
+}
+
+function isTxtLineInRange(txtLine, clickPosX, clickPosY) {
+    let isInXRange = 0 < clickPosX && clickPosX < gElCanvas.width;
+    let isInYRange;
+
+    if (txtLine.baseLine === 'top') {
+        isInYRange = txtLine.pos.y < clickPosY && clickPosY < txtLine.pos.y + txtLine.fontSize;
+    } else if (txtLine.baseLine === 'bottom') {
+        isInYRange = txtLine.pos.y - txtLine.fontSize < clickPosY && clickPosY < txtLine.pos.y;
+    } else { // baseline === middle
+        isInYRange = txtLine.pos.y - (txtLine.fontSize / 2) < clickPosY && clickPosY < txtLine.pos.y + (txtLine.fontSize / 2);
+    }
+
+    return isInXRange && isInYRange;
+}
+
+function onTxtLineClick(txtLine) {
+    setSelectedLineById(txtLine.id);
+    renderCanvas();
 }
 
 function onAddLine() {

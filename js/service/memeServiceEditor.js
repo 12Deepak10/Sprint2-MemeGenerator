@@ -75,6 +75,13 @@ function alignSelectedLine(textAlign) {
     }
 }
 
+function setSelectedLineById(lineId) {
+    let selectedLineIdx = gMeme.lines.findIndex(line => line.id === lineId);
+    if (selectedLineIdx !== null) {
+        gMeme.selectedLineIdx = selectedLineIdx;
+    }
+}
+
 function setNewLineAsSelected() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }

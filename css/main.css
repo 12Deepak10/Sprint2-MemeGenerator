@@ -172,6 +172,10 @@ button {
     padding-bottom: 25px;
 }
 
+.settings-container{
+    max-height: 500px;
+}
+
 .text-line-input {
     border-radius: 12px;
     height: 50px;
