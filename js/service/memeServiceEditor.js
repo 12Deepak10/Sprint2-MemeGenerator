@@ -1,12 +1,11 @@
 'use strict'
 
-let gImages = [];
-
 let gLineDefaults;
 
 let gCanvasHeight;
 let gCanvasWidth;
 let gMeme = {};
+
 
 function createLineDefaults() {
     gLineDefaults = {
@@ -28,6 +27,7 @@ function updateCanvasHeight(canvasHeight) {
     gCanvasHeight = canvasHeight;
 }
 
+
 function initGmeme() {
     gMeme = {
         selectedImg: null,
@@ -35,7 +35,6 @@ function initGmeme() {
         lines: _createInitialLines()
     }
 }
-
 function addLine() {
     gMeme.lines.push(_createLine());
 }
@@ -121,18 +120,6 @@ function setSelectedLineStrokeColor(strokeColor) {
     let selectedLine = _getSelectedLine();
     if (selectedLine) {
         selectedLine.strokeColor = strokeColor;
-    }
-}
-
-function getImages() {
-    return gImages;
-}
-
-function loadImages() {
-    let numOfImages = 18;
-    for (let i = 1; i <= numOfImages; i++) {
-        let currImg = { url: `images/square/${i}.jpg`, id: `${i}` };
-        gImages.push(currImg);
     }
 }
 
