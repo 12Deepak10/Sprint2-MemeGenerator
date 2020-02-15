@@ -104,9 +104,6 @@ a, a:link, a:hover, a:visited, a:active {
     font-size: 20px;
     text-align: start;
     color: #7a7a7a;
-}
-
-.gallery-search:focus {
     outline: none;
 }
 
