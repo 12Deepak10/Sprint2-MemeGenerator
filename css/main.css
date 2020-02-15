@@ -44,6 +44,10 @@ input, select {
     outline: none;
 }
 
+button {
+    all: unset;
+}
+
 /* Layout */
 
 .container {
@@ -127,7 +131,6 @@ input, select {
 }
 
 .gallery-more-btn {
-    all: unset;
     text-transform: lowercase;
     font-size: 16px;
     border-block-end: 1px solid black;
@@ -220,6 +223,25 @@ input, select {
 
 .export-container {
     width: 100%;
+}
+
+.export-btn {
+    width: 120px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Montserrat-Medium;
+}
+
+.export-btn:hover {
+    cursor: pointer;
+}
+
+.export-container .export-btn:not(:last-of-type) {
+    margin-inline-end: 10px;
 }
 
 .about-container {
