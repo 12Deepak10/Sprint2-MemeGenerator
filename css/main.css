@@ -116,14 +116,26 @@ input, select {
     background-position: center right;
 }
 
-.gallery-keywords {
-    margin: 0 auto;
-}
-
 .search-icon {
     width: 20px;
     height: 20px;
     right: 0;
+}
+
+.gallery-keywords {
+    margin: 0 auto;
+}
+
+.gallery-more-btn {
+    all: unset;
+    text-transform: lowercase;
+    font-size: 16px;
+    border-block-end: 1px solid black;
+    color: #040a2c;
+}
+
+.gallery-more-btn:hover {
+    cursor: pointer;
 }
 
 .images-grid {
