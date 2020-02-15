@@ -11,6 +11,15 @@ function init() {
     renderImgGallery();
 }
 
+function onAboutNavBtnClick(elAboutBtn) {
+    onNavBtnClick(elAboutBtn);
+    hideElByClass('editor-container');
+    displayElByClassAndType('gallery-container', 'flex');
+    displayElByClassAndType('about-container', 'flex');
+    let aboutLink = elAboutBtn.querySelector('a');
+    aboutLink.click();
+}
+
 function onGalleryNavBtnClick(elGalleryBtn) {
     onNavBtnClick(elGalleryBtn);
     hideElByClass('editor-container');
@@ -19,9 +28,14 @@ function onGalleryNavBtnClick(elGalleryBtn) {
 }
 
 function onNavBtnClick(elNavBtn) {
+    disableAllNavBtns();
+    elNavBtn.classList.add('active');
+}
+
+function disableAllNavBtns() {
     let elNavBtns = document.querySelectorAll('.main-nav li');
     elNavBtns.forEach(navBtn => navBtn.classList.remove('active'));
-    elNavBtn.classList.add('active');
+
 }
 
 function displayElByClassAndType(elClass, displayType) {
@@ -37,6 +51,7 @@ function hideElByClass(elClass) {
 // ---------- Gallery ----------
 
 function onGalleryImageClick(elImg) {
+    disableAllNavBtns();
     hideElByClass('gallery-container');
     hideElByClass('about-container');
     showEditor(elImg.dataset.imgid);
