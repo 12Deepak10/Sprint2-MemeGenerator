@@ -173,6 +173,10 @@ button {
     padding-bottom: 25px;
 }
 
+.canvas {
+    max-height: 500px;
+}
+
 .settings-container {
     max-height: 500px;
 }
