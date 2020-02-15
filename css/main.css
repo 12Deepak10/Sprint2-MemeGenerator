@@ -333,7 +333,7 @@ button {
 }
 
 .social-icon:hover {
-    color: orange;
+    color: #7e0cf5;
 }
 
 /* footer */
@@ -436,7 +436,7 @@ button {
 
 .editor-icon:hover {
     cursor: pointer;
-    background-color: orange;
+    background-color: #9399ff;
 }
 
 /* Mobile design */
