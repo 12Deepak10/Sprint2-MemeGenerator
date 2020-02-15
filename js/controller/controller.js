@@ -148,7 +148,14 @@ function onRemoveSelectedLine() {
 
 function onChangeLine() {
     setNextLineAsSelected();
+    setInputLineTxtOfSelectedLine();
     renderCanvas();
+}
+
+function setInputLineTxtOfSelectedLine() {
+    let elInputLine = document.querySelector('.text-line-input');
+    let selectedLine = getSelectedLine();
+    elInputLine.value = selectedLine.txt;
 }
 
 function onTextLineInputChange(txt) {
