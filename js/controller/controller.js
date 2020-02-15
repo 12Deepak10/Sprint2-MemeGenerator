@@ -137,6 +137,7 @@ function calcBgRectPosY(txtLine, bgRectHeight) {
 
 function onAddLine() {
     addLine();
+    setNewLineAsSelected();
     renderCanvas();
 }
 
