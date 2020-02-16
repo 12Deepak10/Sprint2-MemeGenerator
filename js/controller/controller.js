@@ -139,7 +139,7 @@ function calcBgRectPosY(txtLine, bgRectHeight) {
     let posY;
 
     if (txtLine.baseLine === 'top') {
-        posY = 0;
+        posY = txtLine.pos.y;
     } else if (txtLine.baseLine === 'bottom') {
         posY = txtLine.pos.y - bgRectHeight;
     } else { // baseline === 'middle'
@@ -149,13 +149,49 @@ function calcBgRectPosY(txtLine, bgRectHeight) {
     return posY;
 }
 
-function onCanvasClick(ev) {
+function onCanvasMouseDown(ev) {
+    let selectedLine = getSelectedLineFromCanvas(ev);
+
+    if (selectedLine) {
+        setSelectedLineById(selectedLine.id);
+        renderCanvas();
+        let mouseMoveListener = (event) => dragLine(event, selectedLine);
+        gElCanvas.addEventListener('mousemove', mouseMoveListener);
+        gElCanvas.addEventListener('mouseup', (event) => dropDraggedLine(event, mouseMoveListener));
+        gElCanvas.addEventListener('mouseleave', (event) => dropDraggedLine(event, mouseMoveListener));
+    }
+}
+
+function dragLine(ev, selectedLine) {
+    let newPosX = ev.offsetX;
+    let newPosY = ev.offsetY;
+    selectedLine.baseLine = 'middle';
+    setNewTxtLineAlignment(selectedLine, ev);
+    selectedLine.pos.x = newPosX;
+    selectedLine.pos.y = newPosY;
+    renderCanvas();
+}
+
+function setNewTxtLineAlignment(selectedLine, ev) {
+    if (0 <= ev.offsetX && ev.offsetX < gElCanvas.width / 4) {
+        selectedLine.align = 'left';
+    } else if (gElCanvas.width / 4 <= ev.offsetX && event.offsetX < gElCanvas.width / 4 * 3) {
+        selectedLine.align = 'center'
+    } else {
+        selectedLine.align = 'right';
+    }
+}
+
+function dropDraggedLine(ev, dragEventListener) {
+    gElCanvas.removeEventListener('mousemove', dragEventListener);
+}
+
+function getSelectedLineFromCanvas(ev) {
     let { offsetX, offsetY } = ev;
     let txtLines = getAllTxtLines();
     let selectedLine = txtLines.find(txtLine => isTxtLineInRange(txtLine, offsetX, offsetY));
-    if (selectedLine) {
-        onTxtLineClick(selectedLine);
-    }
+
+    return selectedLine;
 }
 
 function isTxtLineInRange(txtLine, clickPosX, clickPosY) {
@@ -171,11 +207,6 @@ function isTxtLineInRange(txtLine, clickPosX, clickPosY) {
     }
 
     return isInXRange && isInYRange;
-}
-
-function onTxtLineClick(txtLine) {
-    setSelectedLineById(txtLine.id);
-    renderCanvas();
 }
 
 function onAddLine() {
