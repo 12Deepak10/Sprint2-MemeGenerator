@@ -36,7 +36,6 @@ function onNavBtnClick(elNavBtn) {
 function disableAllNavBtns() {
     let elNavBtns = document.querySelectorAll('.main-nav li');
     elNavBtns.forEach(navBtn => navBtn.classList.remove('active'));
-
 }
 
 function displayElByClassAndType(elClass, displayType) {
@@ -91,6 +90,7 @@ function showEditor(bgImgId) {
         renderCanvas();
     }
     displayElByClassAndType('editor-container', 'flex');
+    setInputLineTxtOfSelectedLine();
     let elEditor = document.querySelector('.editor-container');
     elEditor.scrollIntoView();
 }
@@ -218,11 +218,13 @@ function isTxtLineInRange(txtLine, clickPosX, clickPosY) {
 function onAddLine() {
     addLine();
     setNewLineAsSelected();
+    setInputLineTxtOfSelectedLine();
     renderCanvas();
 }
 
 function onRemoveSelectedLine() {
     removeSelectedLine();
+    setInputLineTxtOfSelectedLine();
     renderCanvas();
 }
 
@@ -235,7 +237,12 @@ function onChangeLine() {
 function setInputLineTxtOfSelectedLine() {
     let elInputLine = document.querySelector('.text-line-input');
     let selectedLine = getSelectedLine();
-    elInputLine.value = selectedLine.txt;
+    if (selectedLine) {
+        elInputLine.value = selectedLine.txt;
+    } else {
+        elInputLine.value = '';
+    }
+    elInputLine.focus();
 }
 
 function onTextLineInputChange(txt) {

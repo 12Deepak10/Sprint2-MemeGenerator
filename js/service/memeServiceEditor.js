@@ -31,7 +31,7 @@ function updateCanvasHeight(canvasHeight) {
 function initGmeme() {
     gMeme = {
         selectedImg: null,
-        selectedLineIdx: null,
+        selectedLineIdx: 0,
         lines: _createInitialLines()
     }
 }
