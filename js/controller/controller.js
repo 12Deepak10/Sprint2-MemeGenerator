@@ -156,6 +156,7 @@ function onCanvasMouseDown(ev) {
 
     if (selectedLine) {
         setSelectedLineById(selectedLine.id);
+        setInputLineTxtOfSelectedLine();
         renderCanvas();
         let mouseMoveListener = (event) => dragLine(event, selectedLine);
         gElCanvas.addEventListener('mousemove', mouseMoveListener);
