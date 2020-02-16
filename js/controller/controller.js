@@ -119,13 +119,14 @@ function drawTextLine(txtLine, selectedLine) {
     if (txtLine === selectedLine) {
         drawBgRect(txtLine);
     }
+    let text = txtLine.txt ? txtLine.txt : txtLine.placeholder;
     gCtx.font = `${txtLine.fontSize}px ${txtLine.font}`;
     gCtx.textAlign = txtLine.align;
     gCtx.fillStyle = txtLine.fontColor;
     gCtx.strokeStyle = txtLine.strokeColor;
     gCtx.textBaseline = txtLine.baseLine;
-    gCtx.fillText(txtLine.txt, txtLine.pos.x, txtLine.pos.y);
-    gCtx.strokeText(txtLine.txt, txtLine.pos.x, txtLine.pos.y);
+    gCtx.fillText(text, txtLine.pos.x, txtLine.pos.y);
+    gCtx.strokeText(text, txtLine.pos.x, txtLine.pos.y);
 }
 
 function drawBgRect(txtLine) {
@@ -235,18 +236,25 @@ function onChangeLine() {
 }
 
 function setInputLineTxtOfSelectedLine() {
+    debugger
     let elInputLine = document.querySelector('.text-line-input');
     let selectedLine = getSelectedLine();
-    if (selectedLine) {
+    if (selectedLine && selectedLine.txt) {
         elInputLine.value = selectedLine.txt;
-    } else {
+    } else if (selectedLine) {
         elInputLine.value = '';
+        elInputLine.placeholder = selectedLine.placeholder;
     }
     elInputLine.focus();
 }
 
 function onTextLineInputChange(txt) {
-    setSelectedLineTxt(txt);
+    if (!txt) {
+        setSelectedLineTxt('');
+        setInputLineTxtOfSelectedLine();
+    } else {
+        setSelectedLineTxt(txt);
+    }
     renderCanvas();
 }
 

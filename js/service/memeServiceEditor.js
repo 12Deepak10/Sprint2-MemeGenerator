@@ -9,7 +9,8 @@ let gMeme = {};
 
 function createLineDefaults() {
     gLineDefaults = {
-        txt: 'Write your text here',
+        txt: '',
+        placeholder: 'Write your text here',
         font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
         fontSize: window.screen.width > 740 ? 50 : 25,
         fontColor: 'white',
@@ -180,6 +181,7 @@ function _createLine(lineIdx) {
     let line = {
         id: Math.round(Math.random() * 1000),
         txt: gLineDefaults.txt,
+        placeholder: gLineDefaults.placeholder,
         font: gLineDefaults.font,
         fontSize: gLineDefaults.fontSize,
         fontColor: gLineDefaults.fontColor,
