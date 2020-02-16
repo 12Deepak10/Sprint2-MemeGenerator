@@ -3,6 +3,7 @@
 let gElCanvas;
 let gCtx;
 let gBgImg;
+let gIsSelectedLineNewAligend = false;
 
 function init() {
     createLineDefaults();
@@ -151,6 +152,7 @@ function calcBgRectPosY(txtLine, bgRectHeight) {
 
 function onCanvasMouseDown(ev) {
     let selectedLine = getSelectedLineFromCanvas(ev);
+    gIsSelectedLineNewAligend = false;
 
     if (selectedLine) {
         setSelectedLineById(selectedLine.id);
@@ -166,7 +168,10 @@ function dragLine(ev, selectedLine) {
     let newPosX = ev.offsetX;
     let newPosY = ev.offsetY;
     selectedLine.baseLine = 'middle';
-    setNewTxtLineAlignment(selectedLine, ev);
+    if (!gIsSelectedLineNewAligend) {
+        setNewTxtLineAlignment(selectedLine, ev);
+        gIsSelectedLineNewAligend = true;
+    }
     selectedLine.pos.x = newPosX;
     selectedLine.pos.y = newPosY;
     renderCanvas();
