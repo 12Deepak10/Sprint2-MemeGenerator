@@ -75,6 +75,10 @@ function alignSelectedLine(textAlign) {
     }
 }
 
+function resetSelectedLine() {
+    gMeme.selectedLineIdx = null;
+}
+
 function setSelectedLineById(lineId) {
     let selectedLineIdx = gMeme.lines.findIndex(line => line.id === lineId);
     if (selectedLineIdx !== null) {
@@ -155,6 +159,10 @@ function setSelectedImgById(imgId) {
 }
 
 function getSelectedLine() {
+    if (gMeme.selectedLineIdx === null) {
+        return null;
+    }
+
     return gMeme.lines[gMeme.selectedLineIdx];
 }
 

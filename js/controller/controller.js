@@ -4,6 +4,7 @@ let gElCanvas;
 let gCtx;
 let gBgImg;
 let gIsSelectedLineNewAligend = false;
+let gIsMemeReadyForDownload = false;
 
 function init() {
     createLineDefaults();
@@ -282,8 +283,21 @@ function onTextAlignChange(textAlign) {
     renderCanvas();
 }
 
-function onDownloadMeme(elDownloadLink) {
-    const data = gElCanvas.toDataURL();
-    elDownloadLink.href = data;
-    elDownloadLink.download = 'meme.png';
+function onDownloadMeme(ev, elDownloadLink) {
+    if (!gIsMemeReadyForDownload) {
+        ev.preventDefault();
+        resetSelectedLine();
+        renderCanvas();
+        console.log('Generating meme...');
+        const data = gElCanvas.toDataURL();
+        elDownloadLink.href = data;
+        elDownloadLink.download = 'meme.png';
+        setTimeout(() => {
+            gIsMemeReadyForDownload = true;
+            let elDownloadBtn = document.querySelector('.download-btn');
+            elDownloadBtn.click();
+        }, 5000);
+    } else {
+        gIsMemeReadyForDownload = false;
+    }
 }
