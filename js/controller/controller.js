@@ -4,7 +4,6 @@ let gElCanvas;
 let gCtx;
 let gBgImg;
 let gIsSelectedLineNewAligend = false;
-let gIsMemeReadyForDownload = false;
 
 function init() {
     createLineDefaults();
@@ -57,8 +56,6 @@ function onGalleryImageClick(elImg) {
     hideElByClass('gallery-container');
     hideElByClass('about-container');
     showEditor(elImg.dataset.imgid);
-    let elGalleryNavBtn = document.querySelector('.gallery-link');
-    elGalleryNavBtn.classList.remove('active');
 }
 
 function renderImgGallery() {
@@ -89,19 +86,16 @@ function showEditor(bgImgId) {
     updateCanvasHeight(gElCanvas.height);
     initGmeme();
     setSelectedImgById(bgImgId);
-    displayElByClassAndType('editor-container', 'flex');
-    renderCanvas();
-}
-
-function renderCanvas(after) {
     gBgImg.src = getBgImg().url;
     gBgImg.onload = () => {
-        gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
-        drawTextLines();
-        if (after) {
-            after();
-        }
+        renderCanvas();
     }
+    displayElByClassAndType('editor-container', 'flex');
+}
+
+function renderCanvas() {
+    gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
+    drawTextLines();
 }
 
 function setCanvasSizeByScreenSize(elCanvas) {
@@ -286,19 +280,10 @@ function onTextAlignChange(textAlign) {
     renderCanvas();
 }
 
-function onDownloadMeme(elDownloadLink, ev) {
-    let data;
-    if (!gIsMemeReadyForDownload) {
-        ev.preventDefault();
-        resetSelectedLine();
-        renderCanvas(() => {
-            gIsMemeReadyForDownload = true;
-            data = gElCanvas.toDataURL();
-            elDownloadLink.href = data;
-            elDownloadLink.download = 'meme.png';
-            elDownloadLink.click();
-        });
-    } else {
-        gIsMemeReadyForDownload = false;
-    }
+function onDownloadMeme(elDownloadLink) {
+    resetSelectedLine();
+    renderCanvas();
+    let data = gElCanvas.toDataURL();
+    elDownloadLink.href = data;
+    elDownloadLink.download = 'meme.png';
 }

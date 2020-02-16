@@ -14,7 +14,7 @@
     <header class="flex align-items-center justify-content-between container main-header">
         <img src="icons/logo/logo-small.png" class="logo" />
         <ul class="flex justify-content-between align-items-center clean-list main-nav">
-            <li class="flex align-items-center gallery-link" onclick="onGalleryNavBtnClick(this)">Gallery</li>
+            <li class="flex align-items-center" onclick="onGalleryNavBtnClick(this)">Gallery</li>
             <div class="seperator"></div>
             <li class="flex align-items-center" onclick="onAboutNavBtnClick(this)"><a href="#about">About</a></li>
         </ul>
@@ -92,7 +92,7 @@
                 <!-- socials -->
                 <div class="flex flex-grow-1 align-items-end justify-content-end export-container">
                     <button class="export-btn"><a class="flex align-items-center justify-content-center export-btn download-btn"
-                            href="#" download="" onclick="onDownloadMeme(this, event)">Download</a></button>
+                            href="#" download="" onclick="onDownloadMeme(this)">Download</a></button>
                     <button class="export-btn share-btn">Share</button>
                 </div>
             </section>
