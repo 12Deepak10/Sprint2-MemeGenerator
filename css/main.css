@@ -178,7 +178,7 @@ button {
 }
 
 .settings-container {
-    max-height: 500px;
+    height: 500px;
 }
 
 .text-line-input {
@@ -464,6 +464,10 @@ button {
     /* Editor */
     .canvas {
         margin-block-end: 10px;
+    }
+    .settings-container {
+        height: unset;
+        max-height: 500px;
     }
     .editor-icon {
         width: 40px;
