@@ -91,6 +91,8 @@ function showEditor(bgImgId) {
         renderCanvas();
     }
     displayElByClassAndType('editor-container', 'flex');
+    let elEditor = document.querySelector('.editor-container');
+    elEditor.scrollIntoView();
 }
 
 function renderCanvas() {
