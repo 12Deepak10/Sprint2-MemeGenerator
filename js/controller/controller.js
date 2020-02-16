@@ -93,11 +93,14 @@ function showEditor(bgImgId) {
     renderCanvas();
 }
 
-function renderCanvas() {
+function renderCanvas(after) {
     gBgImg.src = getBgImg().url;
     gBgImg.onload = () => {
         gCtx.drawImage(gBgImg, 0, 0, gElCanvas.width, gElCanvas.height);
         drawTextLines();
+        if (after) {
+            after();
+        }
     }
 }
 
@@ -283,20 +286,18 @@ function onTextAlignChange(textAlign) {
     renderCanvas();
 }
 
-function onDownloadMeme(ev, elDownloadLink) {
+function onDownloadMeme(elDownloadLink, ev) {
+    let data;
     if (!gIsMemeReadyForDownload) {
         ev.preventDefault();
         resetSelectedLine();
-        renderCanvas();
-        console.log('Generating meme...');
-        const data = gElCanvas.toDataURL();
-        elDownloadLink.href = data;
-        elDownloadLink.download = 'meme.png';
-        setTimeout(() => {
+        renderCanvas(() => {
             gIsMemeReadyForDownload = true;
-            let elDownloadBtn = document.querySelector('.download-btn');
-            elDownloadBtn.click();
-        }, 5000);
+            data = gElCanvas.toDataURL();
+            elDownloadLink.href = data;
+            elDownloadLink.download = 'meme.png';
+            elDownloadLink.click();
+        });
     } else {
         gIsMemeReadyForDownload = false;
     }
