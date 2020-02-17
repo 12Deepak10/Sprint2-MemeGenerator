@@ -85,10 +85,10 @@ function showEditor(bgImgId) {
     updateCanvasHeight(gElCanvas.height);
     initGmeme();
     setSelectedImgById(bgImgId);
-    gBgImg.src = getBgImg().url;
     gBgImg.onload = () => {
         renderCanvas();
     }
+    gBgImg.src = getBgImg().url;
     displayElByClassAndType('editor-container', 'flex');
     setInputLineTxtOfSelectedLine();
     let elEditor = document.querySelector('.editor-container');
