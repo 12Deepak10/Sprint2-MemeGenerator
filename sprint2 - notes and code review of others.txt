@@ -1,0 +1,49 @@
+drag & drop - mobile
+make sure all work with touch (drag & drop)
+
+
+to finish css on gallery and editor: do 
+responsive + hamburger instead nav btns to add modal for share
+
+todo:
+share
+stickers
+
+then implement bonuses - keywords in gallery
+then do work with touch
+
+put titles on btns
+
+send requests to websites like this:  //:
+it sais that the request will be sent in htpp or https,
+according to the current site, if it secured - https,
+otherwise - http
+
+code review notes:
+in html, put css classes on element from the more general to 
+the more specific.
+for example: continar(the general one)  nav-container(the specific one)
+
+should seperate css files by categories (base, layout, helpers and main.. for example)
+use @import to import css files (the order of the css imports
+is as written - the first import will be at the top of
+the file, the sceonf after it, etc..)
+
+on images - set only the width or height - not both,
+in order that the image will keep it aspect ratio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -236,7 +236,6 @@ function onChangeLine() {
 }
 
 function setInputLineTxtOfSelectedLine() {
-    debugger
     let elInputLine = document.querySelector('.text-line-input');
     let selectedLine = getSelectedLine();
     if (selectedLine && selectedLine.txt) {
